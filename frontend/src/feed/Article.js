@@ -48,7 +48,6 @@ function Article() {
         <div className='container'>
             <div>
                 <h2 className=''>{parse(`${article.title}`)}</h2>
-                
             </div>
             <hr className='mt-5' />
             
