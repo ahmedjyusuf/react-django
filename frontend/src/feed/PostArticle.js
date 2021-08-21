@@ -62,6 +62,10 @@ const PostArticle = () => {
                     <button type="submit" className="btn btn-primary btn-lg btn-block">Submit</button>
                 </div>
             </form>
+
+
+
+            
         </div>
     )
 }

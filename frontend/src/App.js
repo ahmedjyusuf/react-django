@@ -45,7 +45,6 @@ function App() {
           <Route path='/news/post_form' component={PostArticle} />
           <Route path='/news/article/:id' component={Article} />
         </Switch>
-        <h1>Hello react</h1>
         <Footer />
       </div>
     </Router>
