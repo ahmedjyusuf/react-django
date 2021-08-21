@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
 }
 
 .App-logo {
@@ -35,4 +35,13 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.ck-editor__editable {
+  min-height: 250px;
+}
+
+.draft {
+  border: solid 2px lightblue;
+  padding: 0 12px;
 }

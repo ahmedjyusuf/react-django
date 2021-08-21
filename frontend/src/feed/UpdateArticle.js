@@ -1,12 +1,36 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Redirect } from 'react-router';
 import { csrftoken as token } from "../utils";
 import parse from 'html-react-parser'
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { useParams } from 'react-router-dom'
 
-const PostArticle = () => {
+
+
+const UpdateArticle = () => {
+    const { id: pk } = useParams()
     let csrftoken = token()
+    const [article, setArticle] = useState('')
+
+    useEffect((pk) => {
+        const fetchArticle = async () => {
+          const res = await fetch(`http://localhost:8000/news/api/article/${pk}/`)
+          const data = await res.json()
+          return data
+        }
+        const getServer = async () => {
+          const serverData = await fetchArticle()
+          setArticle(serverData)
+          setTitle(serverData.title)
+          setShortDescription(serverData.short_description)
+          setLongDescription(serverData.long_description)
+        }
+        getServer()
+      }, []);
+    console.log(article.title)
+    console.log(pk)
+
     const [title, setTitle] = useState()
     const [shortDescription, setShortDescription] = useState('')
     const [longDescription, setLongDescription] = useState('')
@@ -19,7 +43,7 @@ const PostArticle = () => {
             alert('please add title')
             return 
         }
-        const url = 'http://localhost:8000/news/api/post/'
+        const url = `http://localhost:8000/news/api/update/${55}/`
 
         const res = await fetch(url, {
             method: 'POST',
@@ -60,10 +84,11 @@ const PostArticle = () => {
                 <div className='editor mt-5'>
                     <CKEditor
                         editor={ ClassicEditor }
-                        data=""
+                        data={longDescription ? longDescription : 'None'}
+                        
                         onReady={ editor => {
                             // You can store the "editor" and use when it is needed.
-                            console.log( 'Editor is ready to use!', editor );
+                            // console.log( 'Editor is ready to use!', editor );
                         } }
                         onChange={ ( event, editor ) => {
                             const data = editor.getData();
@@ -75,6 +100,7 @@ const PostArticle = () => {
                         } }
                         onFocus={ ( event, editor ) => {
                             console.log( 'Focus.', editor );
+                            console.log(article)
                         } }
                     />
                 </div> 
@@ -96,11 +122,11 @@ const PostArticle = () => {
                 </div>
                 { parse(longDescription) }
             </div> 
-             }
+            }
+            {console.log(title)}
 
             
         </div>
     )
 }
-
-export default PostArticle
+export default UpdateArticle

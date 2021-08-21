@@ -14,7 +14,7 @@ def apiOverview(request):
 		'List':'/article_list/',
 		'Detail View':'/article/<int:pk>/',
 		'Create':'/post/',
-		'Update':'/task-update/<str:pk>/',
+		'Update':'/article-update/<str:pk>/',
 		'Delete':'/delete/<int:id>/',
 		}
 
@@ -49,6 +49,15 @@ def article_post(request):
 	if serializer.is_valid():
 		serializer.save()
 
+	return Response(serializer.data)
+#update articles
+@api_view(['POST', 'GET'])
+def article_update(request, id):
+	article = Articles.objects.get(id=id)
+	serializer = ArticleSerializer(instance=article, data=request.data)
+
+	if serializer.is_valid():
+		serializer.save()
 	return Response(serializer.data)
 
 def post_view(request):

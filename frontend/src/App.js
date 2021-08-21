@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Articles from './feed/Articles';
 import Article from './feed/Article';
+import UpdateArticle from './feed/UpdateArticle';
 import Nav from './components/Nav';
 import PostArticle from './feed/PostArticle';
 import Footer from './components/Footer';
@@ -43,6 +44,7 @@ function App() {
           <Route path='/news/about/' component={About}/>
           <Route path='/news' exact component={Articles} />
           <Route path='/news/post_form' component={PostArticle} />
+          <Route path='/news/update/:id' component={UpdateArticle}/>
           <Route path='/news/article/:id' component={Article} />
         </Switch>
         <Footer />

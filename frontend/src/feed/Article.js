@@ -55,8 +55,9 @@ function Article() {
                 <p>By <Link to='/'>User</Link> | {article.published_date} <Link onClick={() => (deleteArticle(article.id))} href='#'>Delete</Link> </p>
             </div>
             
+                
             <div className='mt-5 mb-5'>
-                <p>{article.long_description}</p>
+            {parse(`${article.long_description}`)}
             </div>
             {/* {redirect && <Redirect to='/' />} */}
             {/* deleteArticle(article.id) */}
