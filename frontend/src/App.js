@@ -44,7 +44,7 @@ function App() {
           <Route path='/news/about/' component={About}/>
           <Route path='/news' exact component={Articles} />
           <Route path='/news/post_form' component={PostArticle} />
-          <Route path='/news/update/:id' component={UpdateArticle}/>
+          <Route path='/news/update/:pk' exact component={UpdateArticle}/>
           <Route path='/news/article/:id' component={Article} />
         </Switch>
         <Footer />

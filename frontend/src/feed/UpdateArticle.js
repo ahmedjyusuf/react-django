@@ -9,13 +9,17 @@ import { useParams } from 'react-router-dom'
 
 
 const UpdateArticle = () => {
-    const { id: pk } = useParams()
+    
+    let { pk } = useParams()
+    let d = pk
+    console.log(useParams(), pk)
+    console.log(pk)
     let csrftoken = token()
     const [article, setArticle] = useState('')
 
     useEffect((pk) => {
         const fetchArticle = async () => {
-          const res = await fetch(`http://localhost:8000/news/api/article/${pk}/`)
+          const res = await fetch(`http://localhost:8000/news/api/article/${d}/`)
           const data = await res.json()
           return data
         }
@@ -28,7 +32,7 @@ const UpdateArticle = () => {
         }
         getServer()
       }, []);
-    console.log(article.title)
+    
     console.log(pk)
 
     const [title, setTitle] = useState()

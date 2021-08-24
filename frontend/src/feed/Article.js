@@ -52,7 +52,7 @@ function Article() {
             <hr className='mt-5' />
             
             <div className='mt-5'>
-                <p>By <Link to='/'>User</Link> | {article.published_date} <Link onClick={() => (deleteArticle(article.id))} href='#'>Delete</Link> </p>
+                <p>By <Link to='/'>User</Link> | <Link to={`/news/update/${id}`}>Updatez</Link> | {article.published_date} <Link onClick={() => (deleteArticle(article.id))} href='#'>Delete</Link> </p>
             </div>
             
                 

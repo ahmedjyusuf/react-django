@@ -24,7 +24,7 @@ function Articles() {
 
 
     return (
-        <div className='container'>
+        <div className='container draft'>
             <p>Hello from articles</p>  
 
             {articles.map((article) => 
