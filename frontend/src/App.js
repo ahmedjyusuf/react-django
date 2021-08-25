@@ -14,26 +14,6 @@ import About from './components/About';
 import Home from './components/Home';
 
 function App() {
-  // const [article, setArticle] = useState([]);
-  // useEffect(() => {
-  //   const getServer = async () => {
-  //     const serverData = await fetchArticle()
-  //     setArticle(serverData)
-  //   }
-  //   getServer()
-  // }, [])
-
-  // const fetchArticle = async () => {
-  //   const res = await fetch('http://localhost:8000/news/article_list/')
-  //   const data = await res.json()
-  //   return data
-  // }
-
-  
-
-
-
-
   return (
     <Router>
       <div className="App">
