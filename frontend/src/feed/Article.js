@@ -11,13 +11,6 @@ function Article() {
   const [article, setArticle] = useState([]);
   const { id } = useParams()
 
-  const fetchArticle = async () => {
-    
-    const res = await fetch(`http://localhost:8000/news/api/article/${id}/`)
-    const data = await res.json()
-    return data
-  }
-
   useEffect(() => {
     const fetchArticle = async () => {
 
