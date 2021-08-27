@@ -11,7 +11,7 @@ function Article() {
   const [article, setArticle] = useState([]);
   const { id } = useParams()
 
-  useEffect(() => {
+  useEffect((id) => {
     const fetchArticle = async () => {
 
       const res = await fetch(`http://localhost:8000/news/api/article/${id}/`)
@@ -24,7 +24,7 @@ function Article() {
       setArticle(serverData)
     }
     getServer()
-  }, []);
+  }, [id]);
 
   const deleteArticle = async (id) => {
     const fetchAndDelete = await fetch(`http://localhost:8000/news/api/delete/${id}/`, {
