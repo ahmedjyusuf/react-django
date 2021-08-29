@@ -12,13 +12,15 @@ import PostArticle from './feed/PostArticle';
 import Footer from './components/Footer';
 import About from './components/About';
 import Home from './components/Home';
-import Part from './components/Part';
+
+import JobsIndex from './views/jobs/JobsIndex';
 function App() {
   return (
     <Router>
       <div className="App">
         <Nav />
-        <Part />
+
+        <JobsIndex />
         <Switch>
           <Route path='/' exact component={Home} />
           <Route path='/news/about/' component={About}/>
