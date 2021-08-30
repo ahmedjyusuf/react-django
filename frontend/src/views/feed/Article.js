@@ -9,7 +9,8 @@ function Article() {
   const [redirect, setRedirect] = useState(false)
 
   const [article, setArticle] = useState([]);
-  const { id } = useParams()
+  const { pk } = useParams()
+  const id = pk
 
   useEffect((id) => {
     const fetchArticle = async () => {
@@ -36,7 +37,6 @@ function Article() {
   if (redirect) {
     return <Redirect to='/news' />
   }
-    
     return (
         <div className='container'>
             <div>

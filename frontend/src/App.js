@@ -4,11 +4,11 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 
-import Articles from './feed/Articles';
-import Article from './feed/Article';
-import UpdateArticle from './feed/UpdateArticle';
+import Articles from './views/feed/Articles';
+import Article from './views/feed/Article';
+import UpdateArticle from './views/feed/UpdateArticle';
 import Nav from './components/Nav';
-import PostArticle from './feed/PostArticle';
+import PostArticle from './views/feed/PostArticle';
 import Footer from './components/Footer';
 import About from './components/About';
 import Home from './components/Home';

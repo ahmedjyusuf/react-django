@@ -11,7 +11,7 @@ const JobsIndex = () => {
     return (
         <div>
             
-            rafcex
+            rafcexx
             {error && error}
             {/* <JobBody jobs={jobs}/> */}
             {/* <Jobs jobs={jobs} /> */}

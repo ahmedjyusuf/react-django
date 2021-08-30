@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Redirect } from 'react-router';
-import { csrftoken as token } from "../utils";
+import { csrftoken as token } from "../../utils";
 import parse from 'html-react-parser'
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
