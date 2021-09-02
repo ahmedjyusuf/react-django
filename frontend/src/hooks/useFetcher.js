@@ -5,22 +5,24 @@ import { useReducer, useEffect } from "react"
 const initialState = {
     loading: true,
     error: '',
-    jobs: []
+    data: []
 }
 
 const reducer = (state, action) => {
     switch(action.type) {
+        case 'MAKE_REQUEST':
+            return  { loading: true, data: [], error: 'Loading....' }
         case 'FETCH_SUCCESS':
             return {
                 ...state,
                 loading: false, 
-                jobs: action.payload.jobs,
+                data: action.payload.data,
                 error: ''
             }
         case 'FETCH_ERROR':
             return {
                 loading: false,
-                jobs: [],
+                data: [],
                 error: action.payload
             }
         default:
@@ -30,24 +32,26 @@ const reducer = (state, action) => {
 
 
 
-const useFetchJobs = (params) => {
+const useFetcher = (params, url) => {
+     console.log(url)
     const [state, dispatch] = useReducer(reducer, initialState)
 
     useEffect(() => {
+        dispatch({type: 'MAKE_REQUEST'})
         axios
-            .get('http://127.0.0.1:8000/jobs/job_list/')
+            .get(url)
             .then(response => {
-                dispatch({type: 'FETCH_SUCCESS', payload: {jobs: response.data}})
+                dispatch({type: 'FETCH_SUCCESS', payload: {data: response.data}})
             })
             .catch(error => {
                 dispatch({ type: 'FETCH_ERROR' })
             })
-    }, [params])
+    }, [params, url])
     
     console.log(state)
     console.log(state)
     return state
 }
 
-export default useFetchJobs
+export default useFetcher
 //   before change

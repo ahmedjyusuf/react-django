@@ -1,35 +1,58 @@
-import parse from 'html-react-parser'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+import { Card, Badge, Button, Collapse } from 'react-bootstrap'
+import ReactMarkdown from 'react-markdown'
+import HTMLReactParser from 'html-react-parser'
+const Articles = ({ article, sideBar }) => {
+    const link = 'http://www.world.blankjobs.com/fullstack-software-remote-this-is-a-fulltime-posistion-remote-fullstack'
+    const desc = "Hello&nbsp;wold \r\n\r\nplease \r\n\r\nlike\r\n\r\nshare \r\n\r\nand \r\n\r\nsubscribe"
 
-import { Link } from "react-router-dom";
-
-
-
-function Articles() {
-    const [articles, setArticles] = useState([]);
-    
-    useEffect(() => {
-      const getServer = async () => {
-        const serverData = await fetchArticles()
-        setArticles(serverData)
-      }
-      getServer()
-    }, [])
-  
-    const fetchArticles = async () => {
-      const res = await fetch('http://localhost:8000/news/api/article_list/')
-      const data = await res.json()
-      return data
-    }
-
-
+    const [open, setOPen] = useState(false)
+    // console.log('inner', jobs)
     return (
-        <div className='container draft'>
-            <p>Hello from articles</p>  
+        <div className="">
 
-            {articles.map((article) => 
-                <Link key={article.id} to={`/news/article/${article.id}`}> <h2 className='bg-light'>{parse(article.title)}</h2></Link> 
-            )}
+            <Card className="mb-3">
+                <Card.Body className="">
+                    <div className="d-flex justify-content-between">
+                        <div>
+                            <Card.Title>
+                                {article.title} - <span className="text-muted 
+                                font-weight-light">the company</span>
+                            </Card.Title>
+                            <Card.Subtitle className="text-muted mb-2">
+                                created date
+                            </Card.Subtitle>
+                            <Badge variant="secondary" className="mr-2">article type</Badge>
+                            <Badge variant="secondary">city</Badge>
+                            <div style={{ wordBreak:'break-all' }}>
+                                <ReactMarkdown children={link} />
+                            </div>
+                        </div>
+                        <img className="d-none d-md-block" src="" height="50" />   
+                    </div>
+                    <Card.Text>
+                    <Button onClick={() => sideBar({article}, open)} > click me</Button>
+                    
+                        {/* <Button onClick={() => setOPen(popen => !popen)} variant={open ? 'secondary' : 'primary'}>{open ? 'Close Details' : 'View Details'}</Button> */}
+                    </Card.Text>
+                    {/* <Collapse in={open}>
+                        <div className="mt-5">
+                            <div className="h5">{article.title}</div>
+                            <ReactMarkdown children={article.long_description} escapeHtml={true} />
+                            <Button variant="secondary" onClick={() => setOPen(false)}>Close</Button>
+                        </div>
+                    </Collapse> */}
+                </Card.Body>
+            </Card>
+            <div className="">
+                <Collapse in={open}>
+                    <div className="mt-5">
+                        <div className="h5">{article.title}</div>
+                        <ReactMarkdown children={article.long_description} escapeHtml={true} />
+                        <Button variant="secondary" onClick={() => setOPen(false)}>Close</Button>
+                    </div>
+                </Collapse>
+            </div>
         </div>
     )
 }
