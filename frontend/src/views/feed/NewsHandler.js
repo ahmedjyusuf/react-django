@@ -28,49 +28,53 @@ const NewsHandler = () => {
     } 
     
     
-    return (
-        <div class="container-fluid">
-            <div class="row ">
-                <div className="border row col-md-5 horizontal-scrollable">
-                    <div class="col-m-4 " >
-                    {articles && articles.map(article => {
+    // return (
+    //     <div>
+    //         hello
+    //     </div>
+        // <div class="container-fluid">
+        //     <div class="row position-relative">
+        //         <div className="border row col-md-5 horizontal-scrollable">
+        //             <div class="col-m-4 " >
+        //             {articles && articles.map(article => {
 
-                        return (
-                                <div class=" ">
-                                    {loading && loading}
-                                    {error && error}
-                                    <Articles key={article.id} article={article} sideBar={sideBar} />
-                                </div>  
-                                )})}                        
+        //                 return (
+        //                         <div class=" ">
+        //                             {loading && loading}
+        //                             {error && error}
+        //                             <Articles key={article.id} article={article} sideBar={sideBar} />
+        //                         </div>  
+        //                         )})}   
+                                                     
                                                             
-                    </div>
-                </div>
-                <div className="d-sm-none d-md-block  row col-md-7 m-2 position-relative scrollDiv">
-                    <Card className="position-relative">
-                        <Card.Title>
-                        {open &&
-                    <Collapse in={open}>
-                        <div className="mt-5 mb-5">
-                            <div className="card-title h5">{body.article.title}</div>
-                            {body.article.long_description}
-                        </div>
-                    </Collapse >
-                    }
-                        </Card.Title>
-                        <Card.Body>
-                            The body
-                        </Card.Body>
-                    </Card>
-                    <div class="col-m-8 p-2 scrollDiv">
+        //             </div>
+        //         </div>
+        //         <div className="d-sm-none d-md-block  row col-md-7 m-2 position-absolute scrollDiv">
+        //             <Card className="positionx-">
+        //                 <Card.Title>
+        //                 {open &&
+        //             <Collapse in={open}>
+        //                 <div className="mt-5 mb-5">
+        //                     <div className="card-title h5">{body.article.title}</div>
+        //                     {body.article.long_description}
+        //                 </div>
+        //             </Collapse >
+        //             }
+        //                 </Card.Title>
+        //                 <Card.Body>
+        //                     The body
+        //                 </Card.Body>
+        //             </Card>
+        //             <div class="col-m-8 p-2 scrollDiv">
                  
-                    {console.log('openzx',open)}
+        //             {console.log('openzx',open)}
                    
-                        {/* {body && body} */}
-                    </div>
-                </div>
+        //                 {/* {body && body} */}
+        //             </div>
+        //         </div>
                 
-            </div>
-        </div>
+        //     </div>
+        // </div>
         // <div className="container">
         //     <div className="row m-2">
         //         <div className="col-md-6">
@@ -103,7 +107,55 @@ const NewsHandler = () => {
         //         </div>
         //     </div>
         // </div>
+//     )
+// }
+
+    return (
+        <div className="main-container">
+            <div className="content-row ">
+                <div className="left">
+                
+                    {/* this is the left side */}
+
+                    {articles && articles.map(article => {
+                        
+                        return (
+                            <div>
+                                <Articles article={article}  sideBar={sideBar} />
+                                
+                            </div>
+                        )
+                    })}
+
+                </div>
+                <div className="right div">
+                <Collapse in={open}>
+                         <div className="mt-2 sidebar">
+                             <Card>
+                                 <Card.Body>
+                                     <Card.Title>
+                                    <span className="title">{body.title}</span>
+                                     </Card.Title>
+                                     {body.long_description}
+                                    
+                                 </Card.Body>
+                             </Card>
+                             
+                             {/* <ReactMarkdown children={body} escapeHtml={true} /> */}
+                             {/* <Button variant="secondary" onClick={() => setOPen(false)}>Close</Button> */}
+                         </div>
+                     </Collapse>
+                    {/* right div */}
+                </div>
+                
+             
+            </div>
+        </div>
     )
 }
 
 export default NewsHandler
+
+// export default NewsHandler
+
+

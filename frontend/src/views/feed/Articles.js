@@ -12,15 +12,16 @@ const Articles = ({ article, sideBar }) => {
         <div className="">
 
             <Card className="mb-3">
-                <Card.Body className="">
+                <Card.Body className="" onClick={() => sideBar(article)}>
                     <div className="d-flex justify-content-between">
                         <div>
                             <Card.Title>
-                                {article.title} - <span className="text-muted 
+                                <span className="title">{article.title}</span> - <span className="text-muted 
                                 font-weight-light">the company</span>
                             </Card.Title>
+
                             <Card.Subtitle className="text-muted mb-2">
-                                created date
+                                left div
                             </Card.Subtitle>
                             <Badge variant="secondary" className="mr-2">article type</Badge>
                             <Badge variant="secondary">city</Badge>
@@ -31,7 +32,7 @@ const Articles = ({ article, sideBar }) => {
                         <img className="d-none d-md-block" src="" height="50" />   
                     </div>
                     <Card.Text>
-                    <Button onClick={() => sideBar({article}, open)} > click me</Button>
+                    {/* <Button onClick={() => sideBar({article}, open)} > click me</Button> */}
                     
                         {/* <Button onClick={() => setOPen(popen => !popen)} variant={open ? 'secondary' : 'primary'}>{open ? 'Close Details' : 'View Details'}</Button> */}
                     </Card.Text>
