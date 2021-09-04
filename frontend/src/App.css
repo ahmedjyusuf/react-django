@@ -1,7 +1,11 @@
 .App {
   /* text-align: center; */
 }
-
+html {
+  padding: 0;
+  margin: 0;
+  font-family: 'Noto Sans','Helvetica Neue',Helvetica,Arial,sans-serif !important;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -13,7 +17,7 @@
   }
 }
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -22,7 +26,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
 .App-link {
   color: #61dafb;
@@ -44,4 +48,67 @@
 .draft {
   border: solid 2px lightblue;
   padding: 0 12px;
+}
+
+
+.app {
+ height: 100vh; 
+}
+
+.content-row {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  margin: 5 10px;
+  position: relative;
+  /* justify-content: baseline; */
+  /* flex-wrap: wrap; */
+  
+}
+
+.left {
+  border: solid 1px whitesmoke;
+  /* background: red; */
+  width: 40%;
+  flex-wrap: wrap;
+  margin: 10px;
+  overflow-y: scroll;
+  
+
+}
+.right {
+  /* border: solid 1px gray; */
+  flex: 1;
+  height: 70vh;
+  overflow-y: scroll;
+  height: calc(100vh - 208px);
+  margin: 10px;
+  position: static;
+}
+.center {
+  text-align: center;
+}
+/* medium */
+
+/* .title {
+  font-size: 1.125rem!important;
+  line-height: 1.5rem!important;
+  letter-spacing: -.06px!important;
+} */
+
+.card {
+  border: 1px solid #dfe1e5;;
+  border-radius: 10px;
+}
+.card:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .left {
+    width: 100%;
+  }
+  .right {
+    display: none;
+  }
 }
