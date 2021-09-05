@@ -3,7 +3,9 @@ import useFetcher from "../../hooks/useFetcher"
 import { useState } from 'react'
 import Articles from "./Articles"
 
-import { Button, Collapse, Card } from "react-bootstrap"
+import Search from "../../components/Search"
+
+import { Button, Badge, Collapse, Card } from "react-bootstrap"
 const NewsHandler = () => {
 
     const [params, setParams] = useState({})
@@ -112,6 +114,8 @@ const NewsHandler = () => {
 
     return (
         <div className="main-container">
+            <Search />
+            
             <div className="content-row ">
                 <div className="left">
                 
@@ -128,9 +132,14 @@ const NewsHandler = () => {
                     })}
 
                 </div>
+                <div>
+                    
+                </div>
                 <div className="right div">
+                   
                 <Collapse in={open}>
-                         <div className="mt-2 sidebar">
+                    
+                         <div className="mt-2 content-scroll">
                              <Card>
                                  <Card.Body>
                                      <Card.Title>
@@ -144,6 +153,18 @@ const NewsHandler = () => {
                              {/* <ReactMarkdown children={body} escapeHtml={true} /> */}
                              {/* <Button variant="secondary" onClick={() => setOPen(false)}>Close</Button> */}
                          </div>
+                     </Collapse>
+                     <Collapse in={!open}>
+                        <Card>
+                        <Card.Img variant="top" src="holder.js/100px180" />
+                            <Card.Body>
+                                <Card.Title>
+                            <span className="title">Welcome to Blah Job site</span>
+                                </Card.Title>
+                                {body.long_description}
+                            
+                            </Card.Body>
+                        </Card>
                      </Collapse>
                     {/* right div */}
                 </div>

@@ -16,15 +16,14 @@ const Articles = ({ article, sideBar }) => {
                     <div className="d-flex justify-content-between">
                         <div>
                             <Card.Title>
-                                <span className="title">{article.title}</span> - <span className="text-muted 
-                                font-weight-light">the company</span>
+                                <span className="title text-uppercase">{article.title}</span> - <span className="text-muted 
+                                font-weight-light text-capitalize">the company</span>
                             </Card.Title>
 
                             <Card.Subtitle className="text-muted mb-2">
-                                left div
                             </Card.Subtitle>
-                            <Badge variant="secondary" className="mr-2">article type</Badge>
-                            <Badge variant="secondary">city</Badge>
+                            <Badge variant="secondary" className="mr-2 text-capitalize">article type</Badge>
+                            <Badge variant="secondary" className="text-capitalize mb-2">city</Badge>
                             <div style={{ wordBreak:'break-all' }}>
                                 <ReactMarkdown children={link} />
                             </div>

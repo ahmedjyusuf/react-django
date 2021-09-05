@@ -72,6 +72,7 @@ html {
   width: 40%;
   flex-wrap: wrap;
   margin: 10px;
+  height: calc(100vh - 15px);
   overflow-y: scroll;
   
 
@@ -83,18 +84,21 @@ html {
   overflow-y: scroll;
   height: calc(100vh - 208px);
   margin: 10px;
-  position: static;
+  /* position: relative; */
+  height: calc(100vh - 208px);
+  /* position: -webkit-sticky; */
+  position: sticky;
+  top: 0;
+
+}
+.content-scroll {
+
+  
 }
 .center {
   text-align: center;
 }
-/* medium */
 
-/* .title {
-  font-size: 1.125rem!important;
-  line-height: 1.5rem!important;
-  letter-spacing: -.06px!important;
-} */
 
 .card {
   border: 1px solid #dfe1e5;;
@@ -107,8 +111,28 @@ html {
 @media (max-width: 768px) {
   .left {
     width: 100%;
+    overflow-y: hidden;
   }
   .right {
     display: none;
   }
+}
+
+.badge2 {
+  margin: 65px;
+}
+
+.search-bar {
+  margin: 10px;
+  text-align: center;
+}
+.search {
+  padding: 10px;
+  width: 400px;
+  height: 50px;
+  outline: none;
+  border-radius: 10px;
+}
+.btn {
+  background-color: #2457A6;
 }
