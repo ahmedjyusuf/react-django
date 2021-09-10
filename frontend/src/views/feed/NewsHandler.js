@@ -118,14 +118,14 @@ const NewsHandler = () => {
             
             <div className="content-row ">
                 <div className="left">
-                
+                    
                     {/* this is the left side */}
 
                     {articles && articles.map(article => {
-                        
+                    
                         return (
                             <div>
-                                <Articles article={article}  sideBar={sideBar} />
+                                <Articles article={article}  sideBar={sideBar} error={error} />
                                 
                             </div>
                         )

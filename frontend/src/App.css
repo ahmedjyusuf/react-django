@@ -11,11 +11,11 @@ html {
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
+/* @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
+} */
 
 /* .App-header {
   background-color: #282c34;
@@ -69,7 +69,7 @@ html {
 .left {
   border: solid 1px whitesmoke;
   /* background: red; */
-  width: 40%;
+  width: 100%;
   flex-wrap: wrap;
   margin: 10px;
   height: calc(100vh - 15px);
@@ -89,6 +89,7 @@ html {
   /* position: -webkit-sticky; */
   position: sticky;
   top: 0;
+  height: 70vh;
 
 }
 .content-scroll {
@@ -106,17 +107,14 @@ html {
 }
 .card:hover {
   cursor: pointer;
+
 }
 
-@media (max-width: 768px) {
-  .left {
-    width: 100%;
-    overflow-y: hidden;
-  }
-  .right {
-    display: none;
-  }
+.fly-out-content {
+  cursor: pointer;
+
 }
+
 
 .badge2 {
   margin: 65px;
@@ -132,7 +130,118 @@ html {
   height: 50px;
   outline: none;
   border-radius: 10px;
+
+
 }
 .btn {
   background-color: #2457A6;
 }
+
+
+/* deletee */
+div.flyout-container {
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  /* width: calc(100vw - 5vw); */
+  background-color: #FFFFFF;
+  height: 100%;
+  z-index: 11;
+  overflow: scroll;
+
+  -webkit-transition: all 400ms ease;
+  -moz-transition: all 400ms ease;
+  -o-transition: all 400ms ease;
+  transition: all 400ms ease;
+  border-left: 2px solid whitesmoke;
+}
+
+.flyout-header {
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  height: 56px;
+  width: 100%;
+  padding: 0;
+  background-color: white; 
+  padding: 17px 15px 20px 22px;
+  box-shadow: 0px 0px 20px 1px gray;
+
+}
+.flyout-body {
+  position: static;
+  padding: 17px 15px 20px 22px;
+  overflow: scroll;
+}
+.flyout-title {
+  margin: 9px 0 25px 0;
+  font-size: 26px;
+  font-weight: normal;
+  line-height: 1.1;
+  color: #2c5e7e;
+}
+
+.flyout-footer {
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  bottom: 0;
+  border-top: 1px solid #d3d3d1;
+  box-shadow: 0 0 8px rgb(0 0 0 / 15%);
+  text-align: center;
+  background-color: white;
+}
+.apply-button {
+  margin: 15px 0;
+  padding: 5 15px;
+  margin-bottom: 30px;
+  background-color: #588204;
+}
+
+.flyout-icon {
+  font-size: 19px;
+}
+body {
+  background-color: yellow;
+}
+ 
+
+@media (max-width: 768px) {
+  .left {
+    width: 100%;
+    overflow-y: hidden;
+  }
+  .right {
+    display: none;
+  }
+
+  .flyout-container {
+    color: orange;
+    width: 50vw !important;
+  }
+
+}
+
+@media print {
+  #flyout-container {
+    display: none;
+  }
+  .apply-button {
+    display: none;
+  }
+  .flyout-title {
+    color: tomato;
+    display: none;
+  }
+  .left {
+    display: none;
+  }
+  .flyout-container {
+    color: orange;
+    width: 100vw !important;
+  }
+}
+

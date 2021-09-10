@@ -44,7 +44,7 @@ const useFetcher = (params, url) => {
                 dispatch({type: 'FETCH_SUCCESS', payload: {data: response.data}})
             })
             .catch(error => {
-                dispatch({ type: 'FETCH_ERROR' })
+                dispatch({ type: 'FETCH_ERROR', payload: 'Sorry something went wrong' })
             })
     }, [params, url])
     

@@ -4,10 +4,10 @@ import useFetcher from "../../hooks/useFetcher"
 import Jobs from "./Jobs"
 import parse from 'html-react-parser'
 import Search from "../../components/Search"
-
+import {Flyout} from 'pivotal-ui/react/flyout';
 import styled from 'styled-components'
 
-import Flyout from "../../components/Flyout"
+import Flying from "../../components/Flying"
 
 import { Button, Badge, Collapse, Card } from "react-bootstrap"
 
@@ -54,6 +54,15 @@ const JobIndex = () => {
         // console.log('bodyyy..', body)
     } 
     
+    // if (open) {
+    //     Flyout.classList.add('Fuadddxxxxxxx');
+    // }
+    // if (window.innerWidth < 768) {
+    //     setWwidth('100vw')
+    // } else {
+    //     setWwidth('90vw')
+    // }
+
     const [windowWidth, setWindowWidth] = useState(window.innerWidth)
     const handleResize = (e) => {
         setWindowWidth(window.innerWidth)
@@ -69,14 +78,29 @@ const JobIndex = () => {
     };
 
 
-
+    const [showFlyOut, setFlyOut] = useState(false)
+    const openFlyOut = () => {
+        setFlyOut(prev => !prev)
+    }
     return (
         <div className="main-container">
             <Search />
             <div>
-            <Collapse in={!open}> 
-                <Flyout props={body} />
-            </Collapse>
+            {/* <Flyout dialogClassName="" show={open} onHide={!open} 
+                buttonAriaLabel="<Button>hello<Button>"
+                header={parse(`<h2>${body.title}</h2>`)} 
+                // width={`calc(100vw - 100px)`}
+                width={`${windowWidth < 750 ? '100vw' : '80vw'}`}
+                
+                bodyClassName="m-5 pb-5"
+                headerClassName=""
+                onHide={openFlyOut}
+                dialogClassName="fly-out-content"
+                children={parse(`${body.long_description}`)}
+                
+                ><div className="p-5">{parse(`${body.long_description}`)}</div><Button className="mb-5">Button</Button>
+            </Flyout>  */}
+            <Flying prop={body} />
             </div>
             <div className="content-row ">
                 
