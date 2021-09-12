@@ -20,6 +20,10 @@ import JobsIndex from './views/jobs/JobsIndex';
 import { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 
+// from here
+import { useSelector, useDispatch } from 'react-redux'
+import { getJobs } from './features/jobs/jobsSlice'
+// to here
 
 
 const LightTheme = {
@@ -47,17 +51,30 @@ function App() {
   const [dark, setDark] = useState(localStorage.getItem('dark-mode') === 'true')
   console.log('darkksss', dark)
   const icon = dark ? <CgSun /> : <HiMoon />
-  useEffect(() => {
-    localStorage.setItem('dark-mode', dark)
-  }, [dark])
+  // useEffect(() => {
+  //   localStorage.setItem('dark-mode', dark)
+  // }, [dark])
   
-  const toggleDarkMode = () => {
-    setDark(!dark)
-  }
+  // const toggleDarkMode = () => {
+  //   setDark(!dark)
+  // }
+
+  // here
+  const dispatch = useDispatch()
+  const { jobs } = useSelector((state) => state.jobs)
+  useEffect(() => {
+    dispatch(getJobs());
+  }, [dispatch])
+  // to here
 
   return (
     <Router>
       <div className="App">
+        <div className="Appx">
+          < h1>Welcome to React Redux Toolkit Crash Course</h1>
+          <hr/>
+          {jobs && jobs.filter(job => job.id < 5).map((job, i) => <h1 key={i}>{job.title}</h1>)}
+        </div>
         <ThemeProvider theme={LightTheme}>
           <Nav />
         </ThemeProvider>
@@ -67,7 +84,7 @@ function App() {
  
         <Switch>
           <Route path='/' exact component={Home} />
-          <Route path='/jobs/:id' component={FlyoutJob} />
+          {/* <Route path='/jobs/:id' component={FlyoutJob} /> */}
           <Route path='/jobs' component={JobsIndex} />
           <Route path='/news/about/' component={About}/>
           <Route path='/news' exact component={NewsHandler} />

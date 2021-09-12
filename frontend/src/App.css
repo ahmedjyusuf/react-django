@@ -73,7 +73,7 @@ html {
   flex-wrap: wrap;
   margin: 10px;
   height: calc(100vh - 15px);
-  overflow-y: scroll;
+
   
 
 }
@@ -171,9 +171,20 @@ div.flyout-container {
   box-shadow: 0px 0px 20px 1px gray;
 
 }
+.flyout-header-left, .flyout-header-right {
+  display: flex;
+  background-color: red;
+
+}
+.flyout-icon {
+  margin: 15px;
+
+}
+
 .flyout-body {
   position: static;
   padding: 17px 15px 20px 22px;
+  margin-bottom: 45px !important;
   overflow: scroll;
 }
 .flyout-title {
@@ -193,6 +204,7 @@ div.flyout-container {
   box-shadow: 0 0 8px rgb(0 0 0 / 15%);
   text-align: center;
   background-color: white;
+  display: none;
 }
 .apply-button {
   margin: 15px 0;
@@ -200,15 +212,35 @@ div.flyout-container {
   margin-bottom: 30px;
   background-color: #588204;
 }
+.apply-button2 {
+  background-color: #588204;
+  border-radius: .25rem;
+  color: white !important;
+  padding: 5px 15px;
+  text-align: center;
+
+}
+.apply-button2:hover {
+  cursor: pointer;
+  transform: scale(1.5); 
+}
 
 .flyout-icon {
   font-size: 19px;
+  transition: transform .15s;
 }
-body {
-  background-color: yellow;
+.flyout-icon:hover {
+  transform: scale(1.25);
 }
- 
 
+.flyout-icon {
+  margin: 2px;
+}
+.apply-button {
+  padding: 5px 20px;
+
+
+}
 @media (max-width: 768px) {
   .left {
     width: 100%;
@@ -217,31 +249,32 @@ body {
   .right {
     display: none;
   }
-
+  .apply-button2 {
+    display: none;
+  }
   .flyout-container {
-    color: orange;
-    width: 50vw !important;
+    width: 100vw !important;
+  }
+  .flyout-footer {
+    display: block;
   }
 
+}
+@media (min-width: 769px) {
+  .flyout-container {
+    width: 75% !important;
+  }
 }
 
 @media print {
   #flyout-container {
-    display: none;
-  }
-  .apply-button {
-    display: none;
-  }
-  .flyout-title {
-    color: tomato;
-    display: none;
-  }
-  .left {
-    display: none;
-  }
-  .flyout-container {
-    color: orange;
+    width: 100%;
+    border-left: none;
     width: 100vw !important;
+    border-left: none;
+  }
+  .flyout-header {
+    display: none;
   }
 }
 
