@@ -13,7 +13,7 @@ const Jobs = ({ job, sideBar }) => {
         <div className="">
 
             <Card className="mb-3">
-                <Card.Body className="" onClick={() => sideBar(job)}>
+                <Card.Body className="" onClick={() => sideBar(job, open)}>
                     <div className="d-flex justify-content-between">
                         <div>
                             <Card.Title>

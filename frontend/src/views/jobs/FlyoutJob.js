@@ -4,7 +4,7 @@ import parse from 'html-react-parser';
 
 
 import {AiOutlinePrinter, AiOutlineMail, AiOutlineClose, AiOutlineTwitter, AiOutlineFacebook} from 'react-icons/ai'
-const Flyout = ({ props, setOpen, open }) => {
+const FlyoutJob = ({ props, setOpen, open }) => {
     // const [windowWidth, setWindowWidth] = useState(window.innerWidth)
     // const handleResize = (e) => {
     //     setWindowWidth(window.innerWidth)
@@ -44,4 +44,4 @@ const Flyout = ({ props, setOpen, open }) => {
     )
 }
 
-export default Flyout
+export default FlyoutJob

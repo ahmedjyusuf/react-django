@@ -13,21 +13,9 @@ import { Button, Badge, Collapse, Card } from "react-bootstrap"
 
 
 import {useComponentVisible} from '../../utils'
+import { icons } from "react-icons"
 
-const Thing = styled.div`
-  color: blue;
-  margin: 2px;
-  @media {max-width: 768px} { 
-    width: 100%;
-  }
 
-  .pui-flyout-dialog-backdrop {
-    border: 1px solid; // an element labeled ".something" inside <Thing>
-    display: flex;
-    width: 100px;
-
-  }
-`
 
 
 const JobIndex = () => {
@@ -41,7 +29,8 @@ const JobIndex = () => {
 
     const [open, setOpen] = useState(false)
     const [body, setbody] = useState([])
-    const [wwidth, setWwidth] = useState(window.innerWidth - 10)
+
+    
     const sideBar = (value, op) => {
         setOpen(!op)
         console.log('clicked', value)
@@ -51,32 +40,19 @@ const JobIndex = () => {
         else {
             setbody([])
         }
-        // console.log('bodyyy..', body)
     } 
     
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth)
-    const handleResize = (e) => {
-        setWindowWidth(window.innerWidth)
-    }
-
-    useEffect(() => {
-        window.addEventListener('resize', handleResize)
-    },[handleResize])
-
-    const myDivStyle = {
-        width: `${windowWidth < 750 ? '100vw' : '90vw'}`,
-
-    };
 
 
 
+    console.log('the opening', open)
     return (
         <div className="main-container">
             <Search />
             <div>
-            <Collapse in={!open}> 
-                <Flyout props={body} />
-            </Collapse>
+            {open &&
+                <Flyout props={body} setOpen={setOpen} open={open} />
+            }
             </div>
             <div className="content-row ">
                 

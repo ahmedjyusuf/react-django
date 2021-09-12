@@ -8,7 +8,7 @@ import { ThemeProvider } from "styled-components";
 
 import Articles from './views/feed/Articles';
 import Article from './views/feed/Article';
-
+import FlyoutJob from './views/jobs/FlyoutJob';
 import UpdateArticle from './views/feed/UpdateArticle';
 import Nav from './components/Nav';
 import PostArticle from './views/feed/PostArticle';
@@ -61,12 +61,13 @@ function App() {
         <ThemeProvider theme={LightTheme}>
           <Nav />
         </ThemeProvider>
-        {icon}
-        <Button onClick={() => setDark(!dark)}>bittpm</Button>
-       {/* <NewsHandler /> */}
-        {/* <JobsIndex /> */}
+
+        {/* {icon}
+        <Button onClick={() => setDark(!dark)}>bittpm</Button> */}
+ 
         <Switch>
           <Route path='/' exact component={Home} />
+          <Route path='/jobs/:id' component={FlyoutJob} />
           <Route path='/jobs' component={JobsIndex} />
           <Route path='/news/about/' component={About}/>
           <Route path='/news' exact component={NewsHandler} />
