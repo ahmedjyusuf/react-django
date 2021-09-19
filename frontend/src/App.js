@@ -17,12 +17,12 @@ import About from './components/About';
 import Home from './components/Home';
 import NewsHandler from './views/feed/NewsHandler';
 import JobsIndex from './views/jobs/JobsIndex';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { Button } from 'react-bootstrap';
 
 // from here
 import { useSelector, useDispatch } from 'react-redux'
-import { getJobs } from './features/jobs/jobsSlice'
+import { deleteJob, fetchJobs, jobsSelector } from './features/jobs/jobsSlice'
 // to here
 
 
@@ -61,22 +61,29 @@ function App() {
 
   // here
   const dispatch = useDispatch()
-  const { jobs } = useSelector((state) => state.jobs)
-  useEffect(() => {
-    dispatch(getJobs());
-  }, [dispatch])
-  // to here
+  // const onDelete = useCallback(id) => {
+  //   dispatch(deleteJob(id))
+  // })
+  const onDelete = useCallback((id) => {
+    dispatch(deleteJob(id)) 
+  }, [])
+  const jobs  = useSelector(jobsSelector.selectAll)
 
+  useEffect(() => {
+    dispatch(fetchJobs());
+  }, [])
+  // to here
+  {jobs && console.log('the joooooooobss',jobs)}
   return (
     <Router>
       <div className="App">
-        <div className="Appx">
-          < h1>Welcome to React Redux Toolkit Crash Course</h1>
-          <hr/>
-          {jobs && jobs.filter(job => job.id < 5).map((job, i) => <h1 key={i}>{job.title}</h1>)}
-        </div>
         <ThemeProvider theme={LightTheme}>
           <Nav />
+          <div className="Appx">
+          < h1>Welcome to React Redux Toolkit Crash Course</h1>
+          <hr/>
+          {jobs && jobs.map((job) => <h1 key={job.id}><a href="" onClick={() => onDelete(job.id)}>delete {job.id}</a> {job.title}</h1>)}
+        </div>
         </ThemeProvider>
 
         {/* {icon}
@@ -86,6 +93,9 @@ function App() {
           <Route path='/' exact component={Home} />
           {/* <Route path='/jobs/:id' component={FlyoutJob} /> */}
           <Route path='/jobs' component={JobsIndex} />
+          <Route>
+            {jobs && jobs.map((job) => <h1 key={job.id}><a href="" onClick={() => onDelete(job.id)}>delete {job.id}</a> {job.title}</h1>)}
+          </Route>
           <Route path='/news/about/' component={About}/>
           <Route path='/news' exact component={NewsHandler} />
           <Route path='/news/post_form' component={PostArticle} />
