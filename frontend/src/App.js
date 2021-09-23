@@ -1,12 +1,8 @@
-// import logo from './logo.svg';
 import './App.css';
-// import { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { CgSun } from "react-icons/cg";
 import { HiMoon } from "react-icons/hi";
-import { ThemeProvider } from "styled-components";
 
-import Articles from './views/feed/Articles';
 import Article from './views/feed/Article';
 import FlyoutJob from './views/jobs/FlyoutJob';
 import UpdateArticle from './views/feed/UpdateArticle';
@@ -16,33 +12,11 @@ import Footer from './components/Footer';
 import About from './components/About';
 import Home from './components/Home';
 import NewsHandler from './views/feed/NewsHandler';
-import JobsIndex from './views/jobs/JobsIndex';
-import { useEffect, useState, useCallback } from 'react';
-import { Button } from 'react-bootstrap';
-
-// from here
-import { useSelector, useDispatch } from 'react-redux'
-import { deleteJob, fetchJobs, jobsSelector } from './features/jobs/jobsSlice'
-// to here
+import Jobs from './features/jobs/Jobs'
+import { useState } from 'react';
 
 
-const LightTheme = {
-  body: 'blue',
-  text: '#363537',
-  toggleBorder: '#FFF',
-  gradient: 'linear-gradient(#39598A, #79D7ED)',
-}
 
-const DarkTheme = {
-  pageBackground: "#282c36",
-  titleColor: "lightpink",
-  tagLineColor: "lavender"
-}
-
-const themes = {
-  light: LightTheme,
-  dark: DarkTheme,
-}
 
 
 
@@ -59,48 +33,24 @@ function App() {
   //   setDark(!dark)
   // }
 
-  // here
-  const dispatch = useDispatch()
-  // const onDelete = useCallback(id) => {
-  //   dispatch(deleteJob(id))
-  // })
-  const onDelete = useCallback((id) => {
-    dispatch(deleteJob(id)) 
-  }, [])
-  const jobs  = useSelector(jobsSelector.selectAll)
 
-  useEffect(() => {
-    dispatch(fetchJobs());
-  }, [])
-  // to here
-  {jobs && console.log('the joooooooobss',jobs)}
   return (
     <Router>
       <div className="App">
-        <ThemeProvider theme={LightTheme}>
           <Nav />
-          <div className="Appx">
-          < h1>Welcome to React Redux Toolkit Crash Course</h1>
-          <hr/>
-          {jobs && jobs.map((job) => <h1 key={job.id}><a href="" onClick={() => onDelete(job.id)}>delete {job.id}</a> {job.title}</h1>)}
-        </div>
-        </ThemeProvider>
-
         {/* {icon}
         <Button onClick={() => setDark(!dark)}>bittpm</Button> */}
  
         <Switch>
           <Route path='/' exact component={Home} />
-          {/* <Route path='/jobs/:id' component={FlyoutJob} /> */}
-          <Route path='/jobs' component={JobsIndex} />
-          <Route>
-            {jobs && jobs.map((job) => <h1 key={job.id}><a href="" onClick={() => onDelete(job.id)}>delete {job.id}</a> {job.title}</h1>)}
-          </Route>
+
+          <Route path='/jobs' component={Jobs} />
           <Route path='/news/about/' component={About}/>
           <Route path='/news' exact component={NewsHandler} />
           <Route path='/news/post_form' component={PostArticle} />
           <Route path='/news/update/:pk' exact component={UpdateArticle}/>
           <Route path='/news/article/:id' component={Article} />
+          <Route path='/jobs/:id' component={FlyoutJob} />
         </Switch>
         {/* <Footer /> */}
       </div>

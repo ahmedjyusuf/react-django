@@ -1,0 +1,6 @@
+// Flyout
+@use 'components/flyout';
+@import 'utilities/variables';
+body {
+    background-color: $main-color;
+}

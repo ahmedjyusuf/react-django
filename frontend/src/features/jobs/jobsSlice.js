@@ -40,6 +40,7 @@ const jobsSlice = createSlice({
     }),
     reducers: {
         setAllJobs: jobsAdapter.setAll,
+        setOneJob: jobsAdapter.setOne,
         deleteOneJob: jobsAdapter.removeOne,
         addManyJobs: jobsAdapter.addMany,
         updateOneJob: jobsAdapter.updateOne,

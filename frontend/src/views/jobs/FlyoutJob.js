@@ -1,28 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "react-bootstrap";
 import parse from 'html-react-parser';
 
 
 import {AiOutlinePrinter, AiOutlineMail, AiOutlineClose, AiOutlineTwitter, AiOutlineFacebook} from 'react-icons/ai'
 const FlyoutJob = ({ props, setOpen, open }) => {
-    // const [windowWidth, setWindowWidth] = useState(window.innerWidth)
-    // const handleResize = (e) => {
-    //     setWindowWidth(window.innerWidth)
-    // }
 
-    // useEffect(() => {
-    //     window.addEventListener('resize', handleResize)
-    // })
-    // const myDivStyle = {
-    //     display: 'flex',
-    //     width: `${windowWidth <= 768 ? '100vw' : '90vw'}`,
-    //     justifyContent: 'space-around',
-    // };
     const print = () => {
         window.print()
     }
+
     return (
-        <div className="flyout-container" id="flyout-container"  >
+        <div className="flyout-container" id="flyout-container" onClick={() => console.log('hello')} >
             <div className="flyout-header ">
                 <div><AiOutlinePrinter className="flyout-icon" size={25}  onClick={print}  /></div>
                 <div><AiOutlineTwitter className="flyout-icon" size={25} /></div>
