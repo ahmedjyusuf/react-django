@@ -17,6 +17,15 @@ export const fetchJobs = createAsyncThunk(
         return { jobs }
     }
 )
+const fetchoneJob = id => createAsyncThunk(
+    'jobs/fetchoneJob',
+    async () => {
+        const data = await fetch(`http://localhost:8000/jobs/api/job/${id}/`)
+        .then((res) => res.json())
+        const job = data
+        return data
+    }
+)
 
 export const deleteJob = createAsyncThunk(
     'jobs/deletejob',
@@ -56,6 +65,17 @@ const jobsSlice = createSlice({
             // state.jobs = action.payload;
         },
         [fetchJobs.rejected]: (state, action) => {
+            state.loading = false;
+        },
+        // single job
+        [fetchoneJob.pending]: (state) => {
+            state.loading = true;
+        },
+        [fetchoneJob.fulfilled]: (state, { payload: id }) => {
+            state.loading = false;
+            jobsAdapter.setOne(state, id)
+        },
+        [fetchoneJob.rejected]: (state) => {
             state.loading = false;
         },
         // deleting jobs

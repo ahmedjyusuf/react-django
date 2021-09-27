@@ -1,0 +1,28 @@
+@import './variables';
+html[data-theme='dark'] {
+    background-color: $darkmode-bg-dark;
+    color: white;
+    nav {
+        background-color: $darkmode-bg-dark;
+    }
+    .App, .dm, .jobs-page, .flyout-body {
+        background-color: $darkmode-bg-dark;
+        color: white;
+    }
+    .contents {
+        background-color: $darkmode-bg-lighter;
+        color: white;
+    }
+    .list-item, .job-count, .date-posted, .job-title {
+        color: white;
+    }
+    .short-description {
+        color: rgb(170, 180, 190);
+    }
+    .theme-selector {
+        border: $primary-border-color;
+    }
+
+
+
+}

@@ -1,6 +1,35 @@
 // Flyout
 @use 'components/flyout';
+@use 'components/jobs';
+@use 'utilities/theme';
 @import 'utilities/variables';
-body {
-    background-color: $main-color;
+
+.the-nav {
+    position: relative;
 }
+nav {
+    position: sticky;
+    top: 0;
+    min-height: 64px;
+    background-color: rgb(230, 225, 225);
+    // box-shadow: inset 0px -1px 1px #eaeef3;
+    // box-shadow: rgb(19 47 76) 0px -1px 1px inset;
+    
+}
+.theme-selector {
+    border: 1px solid rgb(229, 232, 236);
+    display: inline-flex;
+    flex-basis: auto;
+    align-content: center;
+    border-radius: 6px;
+    padding: 5px;
+    cursor: pointer;
+    border: $primary-border-color;
+}
+.navbar-dark {
+    background-color: pink;
+}
+
+
+
+@import 'utilities/mediaQueries'

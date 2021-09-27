@@ -42,6 +42,7 @@ padding: 17px 15px 20px 22px;
 margin-bottom: 45px !important;
 overflow: scroll;
 }
+
 .flyout-title {
 margin: 9px 0 25px 0;
 font-size: 26px;
@@ -51,24 +52,23 @@ color: #2c5e7e;
 }
 
 .apply-button {
-margin: 15px 0;
-padding: 5 15px;
-margin-bottom: 30px;
-background-color: #588204;
+    margin: 15px 0;
+    padding: 5 15px;
+    margin-bottom: 30px;
+    background-color: #588204;
 }
-
 .apply-button2 {
 background-color: #588204;
 border-radius: .25rem;
 color: white !important;
 padding: 5px 15px;
-text-align: center;
+text-align: center; 
 &:hover {
     cursor: pointer;
     transform: scale(1.5);
+    }
 }
-
-
+    
 
 
 .flyout-icon {
@@ -77,6 +77,7 @@ margin: 16px;
 transition: transform .15s;
 &:hover{
     transform: scale(1.25);
+    }
 }
 
 .apply-button {

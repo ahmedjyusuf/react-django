@@ -1,0 +1,44 @@
+.jobs-page {
+    margin: 0 25px;
+    li {
+        list-style: none;
+    }
+    h3 {
+        color: #2c5e7e;
+    }
+    .list-items {
+        text-align: left;
+        color: #4e4c4a;
+        font-weight: 600;
+        height: auto;
+        font-size: 15px;
+    }
+}
+
+.job-listing-container {
+    padding: 5px 0;
+    border-bottom: 2px solid #F1F1F1;
+    li {
+        text-transform: capitalize;
+        
+    }
+}
+.short-description {
+    text-transform: none;
+    margin-top: 20px;
+}
+.jobs-info {
+    display: flex;
+    justify-content: space-between;
+}
+.jobs-icons {
+    display: flex;
+}
+.light-text {
+    display: block;
+    font-size: 15px;
+    font-weight: normal;
+    height: 25px;
+    line-height: 25px;
+    color: #b2b2b2;
+}

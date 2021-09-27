@@ -1,0 +1,49 @@
+$small: 576px;
+$medium: 768px;
+$large: 992px;
+$extraLarge: 1200px;
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: $small) {  }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: $medium) { 
+    .left {
+        width: 100%;
+        overflow-y: hidden;
+    }
+    .right {
+    display: none;
+    }
+    .apply-button2 {
+    display: none;
+    }
+    .flyout-container {
+    width: 100vw !important;
+    }
+    .flyout-footer {
+    display: block;
+    }
+    .flyout-container {
+    width: 75% !important;
+    }
+ }
+
+// Large devices (desktops, 992px and up)
+@media (min-width: $large) {  }
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: $extraLarge) {  }
+
+  
+  @media print {
+    #flyout-container {
+      width: 100%;
+      border-left: none;
+      width: 100vw !important;
+      border-left: none;
+    }
+    .flyout-header {
+      display: none;
+    }
+  }

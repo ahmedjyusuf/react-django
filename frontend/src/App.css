@@ -1,18 +1,233 @@
-/* Error: expected "}".
- *    ,
- * 97 | }
- *    |  ^
- *    '
- *   sass/components/_flyout.scss 97:2  @use
- *   sass/app.scss 2:1                  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: 'Error: expected "}".\a    \2577 \a 97 \2502  }\a    \2502   ^\a    \2575 \a   sass/components/_flyout.scss 97:2  @use\a   sass/app.scss 2:1                  root stylesheet';
+.flyout-container {
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  -webkit-transition: all 400ms ease;
+  -moz-transition: all 400ms ease;
+  -o-transition: all 400ms ease;
+  transition: all 400ms ease;
+  border-left: 2px solid whitesmoke;
 }
+.flyout-container.flyout-header {
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  height: 56px;
+  width: 100%;
+  padding: 0;
+  background-color: white;
+  padding: 17px 15px 20px 22px;
+  box-shadow: 0px 0px 20px 1px gray;
+}
+
+.flyout-header-left, .flyout-header-right {
+  display: flex;
+  background-color: red;
+}
+
+.flyout-body {
+  position: static;
+  padding: 17px 15px 20px 22px;
+  margin-bottom: 45px !important;
+  overflow: scroll;
+}
+
+.flyout-title {
+  margin: 9px 0 25px 0;
+  font-size: 26px;
+  font-weight: normal;
+  line-height: 1.1;
+  color: #2c5e7e;
+}
+
+.apply-button {
+  margin: 15px 0;
+  padding: 5 15px;
+  margin-bottom: 30px;
+  background-color: #588204;
+}
+
+.apply-button2 {
+  background-color: #588204;
+  border-radius: 0.25rem;
+  color: white !important;
+  padding: 5px 15px;
+  text-align: center;
+}
+.apply-button2:hover {
+  cursor: pointer;
+  transform: scale(1.5);
+}
+
+.flyout-icon {
+  font-size: 19px;
+  margin: 16px;
+  transition: transform 0.15s;
+}
+.flyout-icon:hover {
+  transform: scale(1.25);
+}
+
+.apply-button {
+  padding: 5px 20px;
+}
+
+.flyout-footer {
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  bottom: 0;
+  border-top: 1px solid #d3d3d1;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  background-color: white;
+  display: none;
+}
+
+.jobs-page {
+  margin: 0 25px;
+}
+.jobs-page li {
+  list-style: none;
+}
+.jobs-page h3 {
+  color: #2c5e7e;
+}
+.jobs-page .list-items {
+  text-align: left;
+  color: #4e4c4a;
+  font-weight: 600;
+  height: auto;
+  font-size: 15px;
+}
+
+.job-listing-container {
+  padding: 5px 0;
+  border-bottom: 2px solid #F1F1F1;
+}
+.job-listing-container li {
+  text-transform: capitalize;
+}
+
+.short-description {
+  text-transform: none;
+  margin-top: 20px;
+}
+
+.jobs-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.jobs-icons {
+  display: flex;
+}
+
+.light-text {
+  display: block;
+  font-size: 15px;
+  font-weight: normal;
+  height: 25px;
+  line-height: 25px;
+  color: #b2b2b2;
+}
+
+html[data-theme=dark] {
+  background-color: #081A2E;
+  color: white;
+}
+html[data-theme=dark] nav {
+  background-color: #081A2E;
+}
+html[data-theme=dark] .App, html[data-theme=dark] .dm, html[data-theme=dark] .jobs-page, html[data-theme=dark] .flyout-body {
+  background-color: #081A2E;
+  color: white;
+}
+html[data-theme=dark] .contents {
+  background-color: #132F4C;
+  color: white;
+}
+html[data-theme=dark] .list-item, html[data-theme=dark] .job-count, html[data-theme=dark] .date-posted, html[data-theme=dark] .job-title {
+  color: white;
+}
+html[data-theme=dark] .short-description {
+  color: #aab4be;
+}
+html[data-theme=dark] .theme-selector {
+  border: 1px solid #1e4976;
+}
+
+.the-nav {
+  position: relative;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  min-height: 64px;
+  background-color: #e6e1e1;
+}
+
+.theme-selector {
+  border: 1px solid #e5e8ec;
+  display: inline-flex;
+  flex-basis: auto;
+  align-content: center;
+  border-radius: 6px;
+  padding: 5px;
+  cursor: pointer;
+  border: 1px solid #1e4976;
+}
+
+.navbar-dark {
+  background-color: pink;
+}
+
+@media (min-width: 768px) {
+  .left {
+    width: 100%;
+    overflow-y: hidden;
+  }
+
+  .right {
+    display: none;
+  }
+
+  .apply-button2 {
+    display: none;
+  }
+
+  .flyout-container {
+    width: 100vw !important;
+  }
+
+  .flyout-footer {
+    display: block;
+  }
+
+  .flyout-container {
+    width: 75% !important;
+  }
+}
+@media print {
+  #flyout-container {
+    width: 100%;
+    border-left: none;
+    width: 100vw !important;
+    border-left: none;
+  }
+
+  .flyout-header {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=App.css.map */

@@ -1,10 +1,10 @@
 import './App.css';
-import { BrowserRouter as Router, Switch, Route, useRouteMatch } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { CgSun } from "react-icons/cg";
 import { HiMoon } from "react-icons/hi";
 
 import Article from './views/feed/Article';
-// import FlyoutJob from './views/jobs/FlyoutJob';
+import FlyoutJob from './views/jobs/FlyoutJob';
 import UpdateArticle from './views/feed/UpdateArticle';
 import Nav from './components/Nav';
 import PostArticle from './views/feed/PostArticle';
@@ -13,56 +13,41 @@ import About from './components/About';
 import Home from './components/Home';
 import NewsHandler from './views/feed/NewsHandler';
 import Jobs from './features/jobs/Jobs'
-import { useState, useEffect } from 'react';
-
-
+import { useState } from 'react';
 // from here
-import {Button} from 'react-bootstrap'
-import FlyoutJob from './features/jobs/FlyoutJob'
-
+import {Typography, Paper} from '@mui/material'
+import {ThemeProvider, createTheme} from '@mui/material'
 // to here
 
 
 
-// before theme changes
+
 
 function App() {
-  document
-        .getElementsByTagName("HTML")[0]
-        .setAttribute("data-theme", localStorage.getItem("theme"))
-  // const [dark, setDark] = useState(localStorage.getItem('dark-mode') === 'true')
-  // console.log('darkksss', dark)
-  // const icon = dark ? <CgSun /> : <HiMoon />
-  // // useEffect(() => {
-  // //   localStorage.setItem('dark-mode', dark)
-  // // }, [dark])
-  
-  // const toggleDarkMode = () => {
-  //   setDark(!dark)
-  //   document
-  //       .getElementsByTagName("HTML")[0]
-  //       .setAttribute("data-theme", "dark");
-  //   if (dark) {
-  //     document.getElementsByTagName("HTML")[0].setAttribute("data-theme", "dark");
-  //   }
-  // }
 
+  const [dark, setDark] = useState(localStorage.getItem('dark-mode') === 'true')
+  console.log('darkksss', dark)
+  const icon = dark ? <CgSun /> : <HiMoon />
   // useEffect(() => {
   //   localStorage.setItem('dark-mode', dark)
   // }, [dark])
-  //before changes2
   
-  
+  // const toggleDarkMode = () => {
+  //   setDark(!dark)
+  // }
+
+
   return (
     <Router>
       <div className="App">
           <Nav />
-
+        {/* {icon}
+        <Button onClick={() => setDark(!dark)}>bittpm</Button> */}
+ 
         <Switch>
           <Route path='/' exact component={Home} />
 
           <Route path='/jobs' component={Jobs} />
-          {/* <Route path='/jobs/job/:id' component={FlyoutJob} /> */}
           <Route path='/news/about/' component={About}/>
           <Route path='/news' exact component={NewsHandler} />
           <Route path='/news/post_form' component={PostArticle} />
