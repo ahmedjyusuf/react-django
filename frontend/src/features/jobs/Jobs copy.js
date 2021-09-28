@@ -2,17 +2,15 @@
 import { useEffect, useState, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { deleteJob, fetchJobs, jobsSelector,  } from './jobsSlice'
-import  { useRouteMatch, useLocation } from 'react-router-dom'
-import { Link, NavLink, Switch, Route, useParams } from 'react-router-dom'
-import FlyoutJob from './FlyoutJob';
+import { useRouteMatch, Link, Route } from 'react-router-dom'
 import {AiOutlinePrinter, AiOutlineMail, AiOutlineClose, AiOutlineShareAlt, AiOutlineTwitter, AiOutlineFacebook} from 'react-icons/ai'
-
 const Jobs = () => {
+
     const dispatch = useDispatch()
 
     const onDelete = useCallback((id) => {
       dispatch(deleteJob(id)) 
-}, [])
+    }, [])
 
     const jobs  = useSelector(jobsSelector.selectAll)
     
@@ -20,15 +18,15 @@ const Jobs = () => {
       dispatch(fetchJobs());
     }, [])
 
-    const { url } = useRouteMatch()
+    const { url, path } = useRouteMatch()
     console.log(url)
     return (
         <div className="jobs-page">
             <div className="job-count light-text mb-3">{jobs.length} Job Postings found</div>
            {jobs && jobs.map((job) => 
             <div>
-                <ul className="job-listing-container">
-                    <li><h3 className="job-title"><Link to={{pathname: `/jobs/${job.id}/`, key: job.id }}  >{job.title}</Link></h3></li>
+                <ul className="job-listing-container"><Link to={`home${url}${job.id}s`}>linkss</Link>
+                    <li><h3 className="job-title">{job.title}</h3></li>
                     
                     <li className="list-item list-items">Job type: {job.job_type}</li>
                     <li className="list-item list-items">Location: {job.city}</li>
@@ -47,26 +45,16 @@ const Jobs = () => {
                         </div>
                 </div>
                 </ul>
+                
+                
+
+                
+                {/* {job.long_description}
+                {job.published_date} */}
             </div>)}
-            <Switch>
-                {/* <Route  path='/jobs' component={JobsMain} /> */}
-                <Route  path='/jobs/:id'  component={FlyoutJob} name={'ahmed'} />
-            </Switch>
+            <Route path={`${path}/:id`}></Route>
         </div>
     )
 }
-
-// const Jobs = () => {
-//     return (
-//         <div>
-//             <JobsMain>hello</JobsMain>
-//             <Switch>
-//                 {/* <Route  path='/jobs' component={JobsMain} /> */}
-//                 <Route  path='/jobs/:id' component={FlyoutJob} />
-//             </Switch>
-//         </div>
-//     )
-// }
-
+// <a href="" onClick={() => onDelete(job.id)}>delete {job.id}</a>
 export default Jobs
-

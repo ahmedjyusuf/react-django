@@ -19,7 +19,7 @@ import { useState, useEffect } from 'react';
 // from here
 import {Button} from 'react-bootstrap'
 import FlyoutJob from './features/jobs/FlyoutJob'
-
+import Blah from './features/jobs/Blah';
 // to here
 
 
@@ -60,8 +60,8 @@ function App() {
 
         <Switch>
           <Route path='/' exact component={Home} />
-
-          <Route path='/jobs' component={Jobs} />
+          {/* <Route paht='/blah' component={Blah} /> */}
+          <Route path='/jobs'  component={Jobs} />
           {/* <Route path='/jobs/job/:id' component={FlyoutJob} /> */}
           <Route path='/news/about/' component={About}/>
           <Route path='/news' exact component={NewsHandler} />

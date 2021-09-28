@@ -17,13 +17,15 @@ export const fetchJobs = createAsyncThunk(
         return { jobs }
     }
 )
-const fetchoneJob = id => createAsyncThunk(
+export const fetchoneJob =  createAsyncThunk(
     'jobs/fetchoneJob',
-    async () => {
-        const data = await fetch(`http://localhost:8000/jobs/api/job/${id}/`)
-        .then((res) => res.json())
+    async (id) => {
+        const data = await fetch(`http://localhost:8000/jobs/api/job/${id}/`).then((res) => 
+        res.json()
+        )
         const job = data
-        return data
+        console.log(job)
+        return { job }
     }
 )
 
@@ -71,9 +73,9 @@ const jobsSlice = createSlice({
         [fetchoneJob.pending]: (state) => {
             state.loading = true;
         },
-        [fetchoneJob.fulfilled]: (state, { payload: id }) => {
+        [fetchoneJob.fulfilled]: (state, { payload }) => {
             state.loading = false;
-            jobsAdapter.setOne(state, id)
+            jobsAdapter.setOne(state, payload.job)
         },
         [fetchoneJob.rejected]: (state) => {
             state.loading = false;
@@ -93,5 +95,8 @@ const jobsSlice = createSlice({
 })
 export const jobsSelector = jobsAdapter.getSelectors(
     (state) => state.jobs
+)
+export const jobSelector = jobsAdapter.getSelectors(
+    (state) => state.job
 )
 export default jobsSlice.reducer;
