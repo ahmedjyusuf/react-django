@@ -14,18 +14,7 @@
   -o-transition: all 400ms ease;
   transition: all 400ms ease;
   border-left: 2px solid whitesmoke;
-}
-.flyout-container.flyout-header {
-  display: flex;
-  justify-content: space-between;
-  position: sticky;
-  top: 0;
-  height: 56px;
-  width: 100%;
-  padding: 0;
   background-color: white;
-  padding: 17px 15px 20px 22px;
-  box-shadow: 0px 0px 20px 1px gray;
 }
 
 .flyout-header-left, .flyout-header-right {
@@ -33,11 +22,30 @@
   background-color: red;
 }
 
+.flyout-header {
+  display: flex;
+  justify-content: space-between;
+  position: static;
+  top: 0;
+  height: 56px;
+  width: 100%;
+  padding: 0;
+  background-color: white;
+  padding: 1px 15px 20px 22px;
+  box-shadow: 0px 0px 20px 1px gray;
+}
+
 .flyout-body {
   position: static;
   padding: 17px 15px 20px 22px;
-  margin-bottom: 45px !important;
+  margin-bottom: 25px !important;
   overflow: scroll;
+}
+
+.flyout-main {
+  height: 90vh;
+  overflow: scroll;
+  padding-bottom: 10px;
 }
 
 .flyout-title {
@@ -117,6 +125,15 @@
   text-transform: capitalize;
 }
 
+.job-title {
+  display: inline;
+  color: #2c5e7e;
+  text-decoration: none !important;
+}
+.job-title:hover {
+  color: #274d64;
+}
+
 .short-description {
   text-transform: none;
   margin-top: 20px;
@@ -140,29 +157,58 @@
   color: #b2b2b2;
 }
 
+.if-new {
+  vertical-align: middle;
+  display: inline-block;
+  background-color: #f1f3f4;
+  border-radius: 5px;
+  padding: 0 5px;
+  margin-left: 10px;
+  color: white;
+}
+
 html[data-theme=dark] {
-  background-color: #081A2E;
+  background-color: #171717;
   color: white;
 }
 html[data-theme=dark] nav {
-  background-color: #081A2E;
+  background-color: #171717;
 }
-html[data-theme=dark] .App, html[data-theme=dark] .dm, html[data-theme=dark] .jobs-page, html[data-theme=dark] .flyout-body {
-  background-color: #081A2E;
+html[data-theme=dark] .App, html[data-theme=dark] .d, html[data-theme=dark] .jobs-page, html[data-theme=dark] .flyout-main {
+  background-color: #202124;
   color: white;
 }
-html[data-theme=dark] .contents {
-  background-color: #132F4C;
+html[data-theme=dark] .flyout-header, html[data-theme=dark] .bg-dark {
+  background-color: #171717 !important;
+}
+html[data-theme=dark] .contents, html[data-theme=dark] .flyout-footer {
+  background-color: #171717;
   color: white;
 }
-html[data-theme=dark] .list-item, html[data-theme=dark] .job-count, html[data-theme=dark] .date-posted, html[data-theme=dark] .job-title {
-  color: white;
+html[data-theme=dark] .list-item, html[data-theme=dark] .job-count, html[data-theme=dark] .date-posted {
+  color: #969ba1;
 }
 html[data-theme=dark] .short-description {
   color: #aab4be;
 }
 html[data-theme=dark] .theme-selector {
   border: 1px solid #1e4976;
+}
+html[data-theme=dark] .flyout-icon, html[data-theme=dark] .flyout-body {
+  color: #969ba1;
+}
+html[data-theme=dark] .flyout-body {
+  background-color: #202124;
+}
+html[data-theme=dark] .job-title {
+  color: #8ab4f8;
+}
+html[data-theme=dark] .job-listing-container {
+  padding: 5px 0;
+  border-bottom: 2px solid #969ba1;
+}
+html[data-theme=dark] .theme-selector {
+  background-color: #202124;
 }
 
 .the-nav {

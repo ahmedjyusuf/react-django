@@ -1,3 +1,4 @@
+@import '../utilities/variables';
 .jobs-page {
     margin: 0 25px;
     li {
@@ -23,6 +24,14 @@
         
     }
 }
+.job-title {
+    display: inline;
+    color: #2c5e7e;
+    text-decoration: none !important;
+    &:hover {
+        color: #274d64;
+    }
+}
 .short-description {
     text-transform: none;
     margin-top: 20px;
@@ -41,4 +50,14 @@
     height: 25px;
     line-height: 25px;
     color: #b2b2b2;
+}
+
+.if-new {
+    vertical-align: middle;
+    display: inline-block;
+    background-color: #f1f3f4;
+    border-radius: 5px;
+    padding: 0 5px;
+    margin-left: 10px;
+    color: white;
 }

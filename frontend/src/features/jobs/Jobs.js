@@ -21,14 +21,14 @@ const Jobs = () => {
     }, [])
 
     const { url } = useRouteMatch()
-    console.log(url)
+    console.log('availble?', jobs)
     return (
         <div className="jobs-page">
             <div className="job-count light-text mb-3">{jobs.length} Job Postings found</div>
            {jobs && jobs.map((job) => 
             <div>
                 <ul className="job-listing-container">
-                    <li><h3 className="job-title"><Link to={{pathname: `/jobs/${job.id}/`, key: job.id }}  >{job.title}</Link></h3></li>
+                    <li><h3 className="job-title"><Link className="job-title" to={{pathname: `/jobs/${job.id}/`, key: job.id }}  >{job.title}</Link></h3><span className="if-new">{job.time_since < 12 && 'NEW'}</span></li>
                     
                     <li className="list-item list-items">Job type: {job.job_type}</li>
                     <li className="list-item list-items">Location: {job.city}</li>
@@ -43,14 +43,13 @@ const Jobs = () => {
                             
                         </div>
                         <div className="ending-date light-text">
-                            Posted more than 30 days ago
+                            Posted more than {job.time_since } days ago 
                         </div>
                 </div>
                 </ul>
             </div>)}
             <Switch>
-                {/* <Route  path='/jobs' component={JobsMain} /> */}
-                <Route  path='/jobs/:id'  component={FlyoutJob} name={'ahmed'} />
+                <Route  path='/jobs/:id'  component={FlyoutJob} name={() =>'ahmed'} />
             </Switch>
         </div>
     )

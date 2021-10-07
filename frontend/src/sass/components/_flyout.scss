@@ -14,35 +14,45 @@
     -o-transition: all 400ms ease;
     transition: all 400ms ease;
     border-left: 2px solid whitesmoke;
-    &.flyout-header {
-        display: flex;
-        justify-content: space-between;
-        position: sticky;
-        top: 0;
-        height: 56px;
-        width: 100%;
-        padding: 0;
-        background-color: white; 
-        padding: 17px 15px 20px 22px;
-        box-shadow: 0px 0px 20px 1px gray;
-    }
+    background-color: white;
+    
+
     
 }
 
 .flyout-header-left, .flyout-header-right {
     display: flex;
     background-color: red;
+    //padding: 50px;
+    
   
 }
+.flyout-header {
+    display: flex;
+    justify-content: space-between;
+    position: static;
+    top: 0;
+    height: 56px;
+    width: 100%;
+    padding: 0;
+    background-color: white; 
+    padding: 1px 15px 20px 22px;
+    box-shadow: 0px 0px 20px 1px gray;
 
+}
 
 .flyout-body {
 position: static;
 padding: 17px 15px 20px 22px;
-margin-bottom: 45px !important;
+margin-bottom: 25px !important;
 overflow: scroll;
-}
 
+}
+.flyout-main {
+    height: 90vh;
+    overflow: scroll;
+    padding-bottom: 10px;
+}
 .flyout-title {
 margin: 9px 0 25px 0;
 font-size: 26px;

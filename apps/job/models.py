@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
-
+from django.utils import timezone
 
 # Create your models here.
 class Job(models.Model):
@@ -45,5 +45,7 @@ class Job(models.Model):
     published = models.CharField(max_length=20, choices=CHOICES_STATUS, default=DRAFT)
     job_type   = models.CharField(max_length=30, choices=CHOICES_JOB_TYPE, default=FULL_TIME)
     photo = models.ImageField(upload_to='uploads/', blank=True, null=True)
+    
+
     def __str__(self):
         return self.title

@@ -5,16 +5,19 @@ html[data-theme='dark'] {
     nav {
         background-color: $darkmode-bg-dark;
     }
-    .App, .dm, .jobs-page, .flyout-body {
-        background-color: $darkmode-bg-dark;
-        color: white;
-    }
-    .contents {
+    .App, .d, .jobs-page, .flyout-main {
         background-color: $darkmode-bg-lighter;
         color: white;
     }
-    .list-item, .job-count, .date-posted, .job-title {
+    .flyout-header, .bg-dark {
+        background-color: $darkmode-bg-dark !important;
+    }
+    .contents, .flyout-footer  {
+        background-color: $darkmode-bg-dark;
         color: white;
+    }
+    .list-item, .job-count, .date-posted {
+        color: $darkmode-color
     }
     .short-description {
         color: rgb(170, 180, 190);
@@ -22,7 +25,20 @@ html[data-theme='dark'] {
     .theme-selector {
         border: $primary-border-color;
     }
-
-
-
+    .flyout-icon, .flyout-body {
+        color: $darkmode-color;
+    }
+    .flyout-body {
+        background-color: $darkmode-bg-lighter;
+    }
+    .job-title {
+        color: #8ab4f8;;
+    }
+    .job-listing-container {
+        padding: 5px 0;
+        border-bottom: 2px solid $darkmode-color;
+    }
+    .theme-selector {
+        background-color: $darkmode-bg-lighter;
+    }
 }

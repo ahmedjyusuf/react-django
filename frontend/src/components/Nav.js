@@ -10,6 +10,10 @@ function Nav() {
       document
           .getElementsByTagName("HTML")[0]
           .setAttribute("data-theme", localStorage.getItem("theme"))
+          if (!isDarkMode) {
+            localStorage.setItem("theme",  "dark")
+          }
+          
     }, []);
   
     const toggleThemeChange = () => {
@@ -29,6 +33,12 @@ function Nav() {
       
       
     }
+    const darkOS = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
+
+      
+    console.log('darkmode', darkOS)
     const icon = isDarkMode ? <CgSun style={{color: "yellow"}} /> : <HiMoon />
     return (
         

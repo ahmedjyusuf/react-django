@@ -24,7 +24,7 @@ export const fetchoneJob =  createAsyncThunk(
         res.json()
         )
         const job = data
-        console.log(job)
+        console.log('singlejob', job)
         return { job }
     }
 )
@@ -51,7 +51,7 @@ const jobsSlice = createSlice({
     }),
     reducers: {
         setAllJobs: jobsAdapter.setAll,
-        setOneJob: jobsAdapter.setOne,
+        setOneJob: jobsAdapter.addOne,
         deleteOneJob: jobsAdapter.removeOne,
         addManyJobs: jobsAdapter.addMany,
         updateOneJob: jobsAdapter.updateOne,
@@ -61,13 +61,13 @@ const jobsSlice = createSlice({
         [fetchJobs.pending]: (state) => {
             state.loading = true;
         },
+        [fetchJobs.rejected]: (state, action) => {
+            state.loading = false;
+        },
         [fetchJobs.fulfilled]: (state, { payload }) => {
             state.loading = false;
             jobsAdapter.setAll(state, payload.jobs)
             // state.jobs = action.payload;
-        },
-        [fetchJobs.rejected]: (state, action) => {
-            state.loading = false;
         },
         // single job
         [fetchoneJob.pending]: (state) => {
@@ -76,6 +76,7 @@ const jobsSlice = createSlice({
         [fetchoneJob.fulfilled]: (state, { payload }) => {
             state.loading = false;
             jobsAdapter.setOne(state, payload.job)
+            console.log('fulfilled yayyyy')
         },
         [fetchoneJob.rejected]: (state) => {
             state.loading = false;
@@ -99,4 +100,6 @@ export const jobsSelector = jobsAdapter.getSelectors(
 export const jobSelector = jobsAdapter.getSelectors(
     (state) => state.job
 )
+export const {setOneJob} = jobsSlice.actions
+//export default jobsSlice.reducer;
 export default jobsSlice.reducer;

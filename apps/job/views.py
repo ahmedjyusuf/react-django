@@ -10,6 +10,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .serializers import JobSerializer
 from .models import Job
+import time
 
 @api_view(['GET'])
 def apiOverview(request):
@@ -33,9 +34,9 @@ def job_list(request):
 
 @api_view(['GET'])
 def detail(request, id):
-    job = get_object_or_404(Job, id=id)
-    serializer = JobSerializer(job, many=False)
-    return Response(serializer.data)
+	job = get_object_or_404(Job, id=id)
+	serializer = JobSerializer(job, many=False)
+	return Response(serializer.data)
 
 
 @api_view(['DELETE', 'GET'])
@@ -44,8 +45,8 @@ def delete_job(request, id):
 	job.delete()
 	return Response({'msg': 'Job successfully deleted'})
 
-    
+	
 
 # Create your views here.
 def index(request):
-    return HttpResponse('Welcome to the JOBSS section')
+	return HttpResponse('Welcome to the JOBSS section')
