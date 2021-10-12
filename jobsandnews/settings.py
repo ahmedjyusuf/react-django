@@ -39,9 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.polls.apps.PollsConfig',
     'rest_framework',
+    'ckeditor',
     'apps.job',
     'apps.newsapp',
-    
 ]
 
 MIDDLEWARE = [
@@ -142,3 +142,7 @@ MEDIA_ROOT = (
 )
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#ckeditor
+#CKEDITOR_BASEPATH = "/my_static/ckeditor/ckeditor/"
+CKEDITOR_UPLOAD_PATH = MEDIA_URL

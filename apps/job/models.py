@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 from django.utils import timezone
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 class Job(models.Model):
@@ -30,7 +31,7 @@ class Job(models.Model):
 
     title = models.CharField(max_length=255)
     short_description = models.TextField(blank=True, null=True)
-    long_description = models.TextField(blank=True, null=True)
+    long_description = RichTextField(blank=True, null=True)
 
     company_name = models.CharField(max_length=255)
     address = models.CharField(max_length=255, blank=True, null=True)

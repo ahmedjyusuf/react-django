@@ -5,17 +5,21 @@ import { HiMoon } from "react-icons/hi";
 
 function Nav() {
     const [isDarkMode, setIsDarkMode] = useState(localStorage.getItem("theme") === "dark" ? true : false);
-
-    useEffect(() => {
-      document
-          .getElementsByTagName("HTML")[0]
-          .setAttribute("data-theme", localStorage.getItem("theme"))
-          if (!isDarkMode) {
-            localStorage.setItem("theme",  "dark")
-          }
+    const darkOS = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
+    // useEffect(() => {
+    //   document
+    //       .getElementsByTagName("HTML")[0]
+    //       .setAttribute("data-theme", localStorage.getItem("theme"))
+    //       if (darkOS) {
+    //         localStorage.setItem("theme",  "dark")
+    //         setIsDarkMode(true)
+    //       }
           
-    }, []);
-  
+    // }, [darkOS]);
+
+    console.log(darkOS)
     const toggleThemeChange = () => {
       if (isDarkMode === false) {
         localStorage.setItem("theme",  "dark")
@@ -33,9 +37,7 @@ function Nav() {
       
       
     }
-    const darkOS = window.matchMedia(
-        "(prefers-color-scheme: dark)"
-      ).matches;
+
 
       
     console.log('darkmode', darkOS)
@@ -44,7 +46,9 @@ function Nav() {
         
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a className="navbar-brand" href="/">Navbar</a><div className='theme-selector' onClick={toggleThemeChange}>{icon}</div>
+                <a className="navbar-brand" href="/">Navbar</a><span className='theme-selector' onClick={toggleThemeChange}>{icon}</span>
+                {/* {!darkOS && <div className='theme-selector' onClick={toggleThemeChange}>{icon}</div> } */}
+                <div className='theme-selector' onClick={toggleThemeChange}>{icon}</div>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -54,12 +58,20 @@ function Nav() {
                     <li className="nav-item active">
                         <a className="nav-link" href="/">Home</a>
                     </li>
+                    <li className="nav-item">
+            
+                        <Link to='/jobs' className="nav-link">Jobs</Link>
+                    </li>
+                    <li className="nav-item">
+            
+                        <Link to='/news' className="nav-link">News</Link>
+                    </li>
                     <li className='nav-item'>
                         <Link to='/news/post_form' className='nav-link'>Post news</Link>
                     </li>
                     <li className="nav-item">
             
-                        <Link to='/news' className="nav-link">NEws</Link>
+                        <Link to='/news' className="nav-link">News</Link>
                     </li>
                     
                     <li className="nav-item dropdown">

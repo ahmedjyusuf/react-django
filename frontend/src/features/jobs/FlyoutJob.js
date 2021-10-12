@@ -40,15 +40,16 @@ const FlyoutJob = (  ) => {
                     <div><AiOutlineClose className="flyout-icon" onClick={() => setRedirect(true)} size={25} /></div>
                 </div>
                 <div className="flyout-main">
-                    <div className="flyout-title text-uppercase flyout-body">{job && job.title}</div>
+                    <h1 className="flyout-title text-uppercase flyout-body">{job && job.title}</h1>
                     <div className="flyout-body scrollable">
-                        {job && job.long_description}
+                        {parse(`${job.long_description}`)}
                     </div>
                 </div>               
                 <div className="flyout-footer">
                     <Button className="apply-button">
                         Apply  
-                    </Button></div>
+                    </Button>
+                </div>
             </div>
             : 'loading..'}
         </div>
