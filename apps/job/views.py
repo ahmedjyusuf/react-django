@@ -48,5 +48,6 @@ def delete_job(request, id):
 	
 
 # Create your views here.
-def index(request):
-	return HttpResponse('Welcome to the JOBSS section')
+# def index(request):
+# 	return render(request, 'jobs/index.html')
+

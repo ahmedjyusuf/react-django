@@ -4,6 +4,7 @@ import parse from 'html-react-parser';
 
 
 import {AiOutlinePrinter, AiOutlineMail, AiOutlineClose, AiOutlineTwitter, AiOutlineFacebook} from 'react-icons/ai'
+import { Link } from "react-router-dom";
 const FlyoutJob = ({ props, setOpen, open }) => {
 
     const print = () => {
@@ -19,9 +20,9 @@ const FlyoutJob = ({ props, setOpen, open }) => {
                 <div><AiOutlineMail className="flyout-icon" size={25} /></div>
                 <div><a className="flyout-icon apply-button2" onClick={() =>  navigator.clipboard.writeText(props.long_description)}>Apply</a></div>
                 <div><AiOutlineClose className="flyout-icon" size={25} onClick={() => setOpen(false)} /></div>
+                
             </div>
-
-            <div className="flyout-title text-uppercase flyout-body">{props.title}</div>
+            <div className="flyout-title text-uppercase">{props.title}</div>
             <div className="flyout-body scrollable">{parse(`${props.long_description}`)}</div>
             
             

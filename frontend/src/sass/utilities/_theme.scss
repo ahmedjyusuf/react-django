@@ -28,7 +28,7 @@ html[data-theme='dark'] {
     .flyout-icon, .flyout-body {
         color: $darkmode-color;
     }
-    .flyout-body {
+    .flyout-body, .flyout-footer, .flyout-container {
         background-color: $darkmode-bg-lighter;
     }
     .job-title {
@@ -40,5 +40,13 @@ html[data-theme='dark'] {
     }
     .theme-selector {
         background-color: $darkmode-bg-lighter;
+    }
+    .if-new {
+        background-color: #355f79;
+    }
+    .job-search {
+        &:focus {
+            background-color: rgb(30, 40, 46, 0.1);
+        }
     }
 }

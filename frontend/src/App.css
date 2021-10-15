@@ -52,7 +52,7 @@
 
 .flyout-body {
   position: static;
-  padding: 17px 15px 20px 22px;
+  padding: 17px 15px 0 22px;
   margin-bottom: 25px !important;
   overflow: scroll;
 }
@@ -64,7 +64,6 @@
 }
 
 .flyout-title {
-  margin: 9px 0 25px 0;
   font-size: 26px;
   font-weight: normal;
   line-height: 1.1;
@@ -97,6 +96,10 @@
 }
 .flyout-icon:hover {
   transform: scale(1.25);
+}
+
+.flyout-share-link {
+  color: black;
 }
 
 .apply-button {

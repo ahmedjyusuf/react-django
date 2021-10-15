@@ -47,9 +47,9 @@ const Jobs = () => {
                     <li className="list-item short-description"><p>{job.short_description ? job.short_description : parse(`${job.long_description.slice(0,200)}...`)}</p></li>
                     <div className="jobs-info">
                         <div className="jobs-icons">
-                            <div><AiOutlineTwitter className="flyout-icon" size={20} /></div>
+                            <div><a href={`https://twitter.com/share?hashtags=awesome,sharing&url=${window.location.href}&text=${job.title}#010;`} target="_blank" className="flyout-share-link"><AiOutlineTwitter className="flyout-icon" size={20} /></a></div>
                             <div><AiOutlineFacebook className="flyout-icon" size={20} /></div>
-                            <div><AiOutlineMail className="flyout-icon" size={20} /></div>
+                            <div><a target="blank" className="flyout-share-link" href={`mailto:somone@example.com?subject=${job && job.title}&body=Check out this great job ${job && window.location.href}/${job.id}/`}><AiOutlineMail className="flyout-icon" size={20} /></a></div>
                             <div><AiOutlineShareAlt className="flyout-icon" size={20} /></div>
                             
                         </div>

@@ -15,7 +15,22 @@
     transition: all 400ms ease;
     border-left: 2px solid whitesmoke;
     background-color: white;
-    
+
+    h2 {
+        font-family: 'Noto Sans','Helvetica Neue',Helvetica,Arial,sans-serif !important;
+        font-size: 22px;
+        font-weight: normal;
+    }
+    h3 {
+        font-family: 'Noto Sans','Helvetica Neue',Helvetica,Arial,sans-serif !important;
+        font-size: 18px;
+        font-weight: normal;
+    }
+    h4 {
+        font-family: 'Noto Sans','Helvetica Neue',Helvetica,Arial,sans-serif !important;
+        font-size: 14px;
+        font-weight: normal;
+    }
 
     
 }
@@ -43,7 +58,7 @@
 
 .flyout-body {
 position: static;
-padding: 17px 15px 20px 22px;
+padding: 17px 15px 0 22px;
 margin-bottom: 25px !important;
 overflow: scroll;
 
@@ -54,7 +69,7 @@ overflow: scroll;
     padding-bottom: 10px;
 }
 .flyout-title {
-margin: 9px 0 25px 0;
+// margin: 9px 0 16px 0;
 font-size: 26px;
 font-weight: normal;
 line-height: 1.1;
@@ -88,6 +103,9 @@ transition: transform .15s;
 &:hover{
     transform: scale(1.25);
     }
+}
+.flyout-share-link {
+    color: black;
 }
 
 .apply-button {

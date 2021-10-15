@@ -3,6 +3,14 @@ $medium: 768px;
 $large: 992px;
 $extraLarge: 1200px;
 
+//max heights
+@media (max-width: $medium) {
+  .job-count-search {
+    display: none;
+  }
+  
+}
+
 // Small devices (landscape phones, 576px and up)
 @media (min-width: $small) {  }
 
@@ -19,7 +27,11 @@ $extraLarge: 1200px;
     display: none;
     }
     .flyout-container {
-    width: 100vw !important;
+      -webkit-transition: all 49900ms ease;
+      -moz-transition: all 49900ms ease;
+      -o-transition: all 49900ms ease;
+      transition: all 49900ms ease;
+      width: 100vw !important;
     }
     .flyout-footer {
     display: block;
@@ -27,10 +39,17 @@ $extraLarge: 1200px;
     .flyout-container {
     width: 75% !important;
     }
+  .job-count {
+    display: none;
+  }
  }
 
 // Large devices (desktops, 992px and up)
-@media (min-width: $large) {  }
+@media (min-width: $large) { 
+  .flyout-container {
+    transition: all 1s ease;
+  }
+ }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: $extraLarge) {  }

@@ -1,4 +1,29 @@
 @import '../utilities/variables';
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+.search {
+    display: flex;
+    justify-content: space-between;
+    border-top: 2px solid #F1F1F1;
+    border-bottom: 2px solid #F1F1F1;
+    margin-top: 10px;
+    padding: 10px;
+
+}
+.job-search{
+    width: 270px;
+    height: 35px;
+    border: solid rgba(71, 70, 70, 0.6) 1px;
+    outline: none;
+    border-radius: 2.5px;
+    background-color: rgb(113, 127, 141, 0.1);
+    &:focus {
+        border: solid 2px skyblue;
+        background-color: white;
+    }
+}
 .jobs-page {
     margin: 0 25px;
     li {
@@ -13,25 +38,31 @@
         font-weight: 600;
         height: auto;
         font-size: 15px;
+        margin-top: 8px;
     }
+    
 }
 
 .job-listing-container {
     padding: 5px 0;
     border-bottom: 2px solid #F1F1F1;
     li {
-        text-transform: capitalize;
-        
+        text-transform: capitalize; 
+    }
+    li:first-of-type {
+        margin-bottom: 10px;
     }
 }
 .job-title {
     display: inline;
     color: #2c5e7e;
     text-decoration: none !important;
+    
     &:hover {
         color: #274d64;
     }
 }
+
 .short-description {
     text-transform: none;
     margin-top: 20px;
@@ -55,7 +86,7 @@
 .if-new {
     vertical-align: middle;
     display: inline-block;
-    background-color: #f1f3f4;
+    background-color: #5684a1;
     border-radius: 5px;
     padding: 0 5px;
     margin-left: 10px;
