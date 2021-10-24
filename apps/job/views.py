@@ -33,7 +33,7 @@ def job_list(request):
 	return Response(serializer.data)
 
 @api_view(['GET'])
-def detail(request, id):
+def detail(request, id, *args, **kwargs):
 	job = get_object_or_404(Job, id=id)
 	serializer = JobSerializer(job, many=False)
 	return Response(serializer.data)

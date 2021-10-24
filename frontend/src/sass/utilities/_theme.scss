@@ -49,4 +49,24 @@ html[data-theme='dark'] {
             background-color: rgb(30, 40, 46, 0.1);
         }
     }
+    .footer {
+        background-color: $darkmode-bg-dark;
+    }
+    .form-control, .ck {
+        background-color: $darkmode-bg-lighter;
+        color: white;
+    }
+    .ck-toolbar__items {
+        background-color: $darkmode-bg-dark;
+        color: white;
+    }
+    .ck-button__icon, .ck-icon {
+        color: white;
+    }
+    .ck-content p, .ck-content {
+        background-color: green;
+    }
+    .ck-editor__main > * {
+        background-color: yellow;
+    }
 }

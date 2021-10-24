@@ -1,0 +1,16 @@
+@import './variables';
+.footer {
+    display: flex;
+    //flex-direction: column;
+    justify-content: center;
+    //align-content: center;
+    //text-align: center;
+    height: 60px; 
+    background-color: rgb(35,35,71);
+}
+
+.footer-content {
+    background-color: red;
+    text-align: center;
+    height: 29px;
+}

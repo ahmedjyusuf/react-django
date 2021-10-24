@@ -118,6 +118,15 @@
   display: none;
 }
 
+.flyout-close:hover {
+  -webkit-transition: all 210ms ease;
+  -moz-transition: all 210ms ease;
+  -o-transition: all 210ms ease;
+  transition: all 210ms ease;
+  animation: rotating 2s linear infinite;
+  transform: rotate(90deg);
+}
+
 .flex {
   display: flex;
   justify-content: space-between;
@@ -265,6 +274,43 @@ html[data-theme=dark] .if-new {
 html[data-theme=dark] .job-search:focus {
   background-color: rgba(30, 40, 46, 0.1);
 }
+html[data-theme=dark] .footer {
+  background-color: #171717;
+}
+html[data-theme=dark] .form-control, html[data-theme=dark] .ck {
+  background-color: #202124;
+  color: white;
+}
+html[data-theme=dark] .ck-toolbar__items {
+  background-color: #171717;
+  color: white;
+}
+html[data-theme=dark] .ck-button__icon, html[data-theme=dark] .ck-icon {
+  color: white;
+}
+html[data-theme=dark] .ck-content p, html[data-theme=dark] .ck-content {
+  background-color: green;
+}
+html[data-theme=dark] .ck-editor__main > * {
+  background-color: yellow;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  height: 60px;
+  background-color: #232347;
+}
+
+.footer-content {
+  background-color: red;
+  text-align: center;
+  height: 29px;
+}
+
+.App {
+  min-height: 100%;
+}
 
 .the-nav {
   position: relative;
@@ -290,6 +336,10 @@ nav {
 
 .navbar-dark {
   background-color: pink;
+}
+
+.content {
+  min-height: calc(100vh - 120px);
 }
 
 @media (max-width: 768px) {

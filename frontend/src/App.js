@@ -60,20 +60,24 @@ function App() {
           <Nav />
 
         <Switch>
-          <Route path='/' exact component={Home} />
-          {/* <Route paht='/blah' component={Blah} /> */}
-          <Route path='/jobs/post_job' exact component={PostJob} />
-          <Route path='/jobs'  component={Jobs} />
-          {/* <Route path='/jobs/job/:id' component={FlyoutJob} /> */}
-          <Route path='/news/about/' component={About}/>
-          <Route path='/news' exact component={NewsHandler} />
-          <Route path='/news/post_form' component={PostArticle} />
-          <Route path='/news/update/:pk' exact component={UpdateArticle}/>
-          <Route path='/news/article/:id' component={Article} />
-          <Route path='/jobs/:id' component={FlyoutJob} />
+          <div className='content'>
+            <Route path='/' exact component={Home} />
+            {/* <Route paht='/blah' component={Blah} /> */}
+            <Route path='/jobs/post_job' exact component={PostJob} />
+            <Route path='/jobs'  component={Jobs} />
+            {/* <Route path='/jobs/job/:id' component={FlyoutJob} /> */}
+            <Route path='/news/about/' component={About}/>
+            <Route path='/news' exact component={NewsHandler} />
+            <Route path='/news/post_form' component={PostArticle} />
+            <Route path='/news/update/:pk' exact component={UpdateArticle}/>
+            <Route path='/news/article/:id' component={Article} />
+            <Route path='/jobs/:id' component={FlyoutJob} />
+          </div>
         </Switch>
         {/* <Footer /> */}
+        <Footer />
       </div>
+
     </Router>
   );
 }

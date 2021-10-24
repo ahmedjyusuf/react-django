@@ -5,7 +5,7 @@ import axios from 'axios'
 
 
 const jobHeader = {}
-const baseUrl = 'http://localhost:8000/jobs/api/job';
+const baseUrl = 'http://localhost:8000/jobs/api/job/';
 const createRequest = (url) => ({ url, headers: jobHeader })
 
 const jobApi = createApi({
