@@ -25,7 +25,7 @@
     }
 }
 .jobs-page {
-    margin: 0 25px;
+    //margin: 0 25px;
     li {
         list-style: none;
     }
@@ -91,4 +91,22 @@
     padding: 0 5px;
     margin-left: 10px;
     color: white;
+}
+
+
+//jobs index page
+.jobs-index {
+    background-color: green;
+}
+.collapse-jobs {
+    display: flex;
+    justify-content: space-between;
+    background-color: gray;
+    padding: 5px;
+
+}
+#home-jobs {
+    transition: all 210ms ease;
+    animation-duration: 3s;
+    transition: width 60s;
 }

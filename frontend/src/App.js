@@ -1,10 +1,8 @@
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, useRouteMatch } from "react-router-dom";
-import { CgSun } from "react-icons/cg";
-import { HiMoon } from "react-icons/hi";
 
 import Article from './views/feed/Article';
-// import FlyoutJob from './views/jobs/FlyoutJob';
+
 import UpdateArticle from './views/feed/UpdateArticle';
 import Nav from './components/Nav';
 import PostArticle from './views/feed/PostArticle';
@@ -14,13 +12,14 @@ import Home from './components/Home';
 import NewsHandler from './views/feed/NewsHandler';
 import Jobs from './features/jobs/Jobs'
 import PostJob from './features/jobs/PostJob';
-import { useState, useEffect } from 'react';
+
 
 
 // from here
-import {Button} from 'react-bootstrap'
+
 import FlyoutJob from './features/jobs/FlyoutJob'
-import Blah from './features/jobs/Blah';
+import NotFound from './components/NotFound';
+
 // to here
 
 
@@ -31,28 +30,6 @@ function App() {
   document
         .getElementsByTagName("HTML")[0]
         .setAttribute("data-theme", localStorage.getItem("theme"))
-  // const [dark, setDark] = useState(localStorage.getItem('dark-mode') === 'true')
-  // console.log('darkksss', dark)
-  // const icon = dark ? <CgSun /> : <HiMoon />
-  // // useEffect(() => {
-  // //   localStorage.setItem('dark-mode', dark)
-  // // }, [dark])
-  
-  // const toggleDarkMode = () => {
-  //   setDark(!dark)
-  //   document
-  //       .getElementsByTagName("HTML")[0]
-  //       .setAttribute("data-theme", "dark");
-  //   if (dark) {
-  //     document.getElementsByTagName("HTML")[0].setAttribute("data-theme", "dark");
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   localStorage.setItem('dark-mode', dark)
-  // }, [dark])
-  //before changes2
-  
   
   return (
     <Router>
@@ -72,6 +49,9 @@ function App() {
             <Route path='/news/update/:pk' exact component={UpdateArticle}/>
             <Route path='/news/article/:id' component={Article} />
             <Route path='/jobs/:id' component={FlyoutJob} />
+            <Route path="**">
+              <NotFound />
+            </Route>
           </div>
         </Switch>
         {/* <Footer /> */}
