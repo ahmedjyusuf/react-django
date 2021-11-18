@@ -3,6 +3,7 @@
 @use 'components/jobs';
 @use 'utilities/theme';
 @use 'utilities/footer';
+@use 'utilities/spinner';
 @import 'utilities/variables';
 .App {
     min-height: 100%;

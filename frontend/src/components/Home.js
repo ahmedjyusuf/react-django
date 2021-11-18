@@ -27,6 +27,7 @@ const Home = () => {
                         {showingJobs ? <BsArrowsCollapse /> : <AiOutlineExpandAlt />}
                     </span>
                 </div>
+                
             {showingJobs &&
                 <div id="home-jobs">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro assumenda harum sapiente eos neque rem consectetur odit rerum repellendus nesciunt?

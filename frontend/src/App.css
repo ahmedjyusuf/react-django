@@ -9,7 +9,7 @@
   top: 0;
   right: 0;
   height: 100%;
-  -webkit-transition: all 400ms ease;
+  -webkit-transition: all 200ms ease;
   -moz-transition: all 400ms ease;
   -o-transition: all 400ms ease;
   transition: all 400ms ease;
@@ -308,6 +308,9 @@ html[data-theme=dark] .ck-content p, html[data-theme=dark] .ck-content {
 html[data-theme=dark] .ck-editor__main > * {
   background-color: yellow;
 }
+html[data-theme=dark] .job-search {
+  color: white;
+}
 
 input[type=checkbox] {
   width: 0;
@@ -361,6 +364,70 @@ input:checked + label {
   height: 29px;
 }
 
+.loading-spinner {
+  width: 100vw;
+  height: 100vh;
+  background: #FAFFB8;
+  --amount: 20;
+}
+
+.loading-spinner span {
+  width: 8vmin;
+  height: 8vmin;
+  border-radius: 4vmin;
+  backface-visibility: hidden;
+  position: absolute;
+  animation-name: move;
+  animation-timing-function: cubic-bezier(0.4, 0, 1, 0.8);
+  animation-iteration-count: infinite;
+  animation-duration: 3s;
+  top: calc(50% - 4vmin);
+  left: 50%;
+  transform-origin: -4vmin center;
+}
+.loading-spinner span:nth-child(1) {
+  background: #35B0AB;
+  animation-delay: -0.5s;
+  opacity: 0;
+}
+.loading-spinner span:nth-child(2) {
+  background: #C5F0A4;
+  animation-delay: -1s;
+  opacity: 0;
+}
+.loading-spinner span:nth-child(3) {
+  background: #35B0AB;
+  animation-delay: -1.5s;
+  opacity: 0;
+}
+.loading-spinner span:nth-child(4) {
+  background: #35B0AB;
+  animation-delay: -2s;
+  opacity: 0;
+}
+.loading-spinner span:nth-child(5) {
+  background: #35B0AB;
+  animation-delay: -2.5s;
+  opacity: 0;
+}
+.loading-spinner span:nth-child(6) {
+  background: #226B80;
+  animation-delay: -3s;
+  opacity: 0;
+}
+
+@keyframes move {
+  0% {
+    transform: scale(1) rotate(0deg) translate3d(0, 0, 1px);
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    z-index: 10;
+    transform: scale(0) rotate(360deg) translate3d(0, 0, 1px);
+  }
+}
 .App {
   min-height: 100%;
 }
@@ -419,10 +486,6 @@ nav {
   }
 
   .flyout-container {
-    -webkit-transition: all 49900ms ease;
-    -moz-transition: all 49900ms ease;
-    -o-transition: all 49900ms ease;
-    transition: all 49900ms ease;
     width: 100vw !important;
   }
 

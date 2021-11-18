@@ -8,7 +8,7 @@ const jobHeader = {}
 const baseUrl = 'http://localhost:8000/jobs/api/job/';
 const createRequest = (url) => ({ url, headers: jobHeader })
 
-const jobApi = createApi({
+export const jobApi = createApi({
     reducerPath: 'jobApi',
     baseQuery: fetchBaseQuery({ baseUrl }),
     endpoints: (builder) => ({
@@ -20,4 +20,3 @@ const jobApi = createApi({
   });
 
 export const { useGetJobQuery } = jobApi;
-export default jobApi;

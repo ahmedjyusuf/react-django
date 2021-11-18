@@ -1,11 +1,12 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { useSelector, useDispatch } from 'react-redux'
 import { deleteJob, fetchJobs, jobsSelector, jobSelector, fetchoneJob, setOneJob } from './jobsSlice'
-import { Button } from "react-bootstrap";
+// import { Button } from "react-bootstrap";
 import parse from 'html-react-parser';
 import { useParams, useLocation, Redirect } from 'react-router-dom'
 import { useGetJobQuery } from './jobApi'
 import { Link } from "react-router-dom";
+import { BoxLoading } from 'react-loadingg'
 // before changes
 
 
@@ -41,15 +42,26 @@ const FlyoutJob = (  ) => {
     if (redirect) {
         return <Redirect to='/jobs' />
     }
-    if (isFetching) {
-        return 'loading...'
-    }
+    // if (isFetching) {
+    //     return 'loading...'
+    // }
 
     
     return (
         <div>
-            {error && `<div>error</div>`}
+            
          
+            {error && `<div>error</div>`}
+            {isFetching &&
+            <div class="loading-spinner">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>     
+            }       
             <div className="flyout-container" id="flyout-container" style={myDivStyle}>
                 <div className="flyout-header ">
                     <div><AiOutlinePrinter className="flyout-icon" size={25}  onClick={print}  /></div>
@@ -70,9 +82,9 @@ const FlyoutJob = (  ) => {
                     </div>
                 </div>               
                 <div className="flyout-footer">
-                    <Button className="apply-button">
+                    {/* <Button className="apply-button">
                         Apply  
-                    </Button>
+                    </Button> */}
                 </div>
             </div>
            
