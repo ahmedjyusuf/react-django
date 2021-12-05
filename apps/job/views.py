@@ -46,8 +46,3 @@ def delete_job(request, id):
 	return Response({'msg': 'Job successfully deleted'})
 
 	
-
-# Create your views here.
-# def index(request):
-# 	return render(request, 'jobs/index.html')
-
